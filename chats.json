@@ -1,0 +1,16 @@
+{
+    "sender_ID": "", 
+    "receiver_ID": "",
+    "timestamp": "2022-09-30 23:23",
+    "message": "Hola",
+    "emoji": "✌", 
+    "reaction": ""
+},
+{
+    "sender_ID": "123",
+    "receiver_ID": "456",
+    "timestamp": "2022-10-01 00:12:14",
+    "message": "hola",
+    "emoji": "\ud83d\ude02\ud83d\ude02", 
+    "reacion": ""
+}
