@@ -1,2 +1,4 @@
-# PSG-Social-Media
-For event management, containing chat boxes and grading systems or even an IV planner!
+# Eventique
+Event Management and User Profiling
+
+## Team : Code Hawk
