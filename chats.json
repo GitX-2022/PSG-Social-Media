@@ -1,16 +1,31 @@
 {
-    "sender_ID": "", 
-    "receiver_ID": "",
-    "timestamp": "2022-09-30 23:23",
-    "message": "Hola",
-    "emoji": "✌", 
-    "reaction": ""
-},
-{
-    "sender_ID": "123",
-    "receiver_ID": "456",
-    "timestamp": "2022-10-01 00:12:14",
-    "message": "hola",
-    "emoji": "\ud83d\ude02\ud83d\ude02", 
-    "reacion": ""
+    "chat_logs": [
+        {
+            "text_id": "1",
+            "sender_ID": "456",
+            "receiver_ID": "123",
+            "timestamp": "2022-09-30 23:23",
+            "message": "Hola",
+            "emoji": "\ud83d\ude02",
+            "reaction": " "
+        },
+        {
+            "text_id": "2",
+            "sender_ID": "123",
+            "receiver_ID": "456",
+            "timestamp": "2022-10-01 00:12:14",
+            "message": "hola",
+            "emoji": "\ud83d\ude02\ud83d\ude02",
+            "reaction": " "
+        },
+        {
+            "test_id": 3,
+            "sender_ID": "123",
+            "receiver_ID": "456",
+            "timestamp": "2022-10-01 01:27:31",
+            "message": "hola",
+            "emoji": "\u270c\u270c",
+            "reaction": ""
+        }
+    ]
 }
