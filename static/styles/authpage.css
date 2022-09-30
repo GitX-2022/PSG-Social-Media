@@ -143,8 +143,9 @@ body {
 	position: absolute;
 	height: 140px;
 	width: 50%;
-	text-align: center;
+	text-align: left;
 	bottom: 0px;
 	right: 0px;
 	color: #fff;
+	padding-right: 20px;
 }
