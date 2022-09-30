@@ -1,0 +1,114 @@
+{
+    "People": [
+    {
+        "First Name": "Ajay",
+        "Last Name" : "Ramesh",
+        "Location": "Tamil Nadu",
+        "Thumbnail": " ",
+        "About": "A very good person with top remarks",
+        "Education": [
+            {
+                "School": [
+                    {
+                        "Name": "The Camford International School",
+                        "Start Date": "15-08-2009",
+                        "End Date": "20-08-2021",
+                        "Location": "Coimbatore, Tamil Nadu",
+                        "Description": "A good school",
+                        "Logo": " ",
+                        "Link": "https://thecamford.org/"
+                    }
+                ],
+                "PSG College Of Technology": [
+                    {
+                        "Course": "Bachelor of Engineering",
+                        "Start Date": "07-10-2021",
+                        "End Date": "On Going",
+                        "Course Topic": "Computer Science and Engineering",
+                        "Class": "Second Year"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Courses and Co-Curricular Experiences (Cerificates, Internships)": [
+            {
+                "Title": "Hackathon 2019",
+                "Organization": "The Camford International School",
+                "Start Date": "21-11-2019",
+                "End Date": "23-11-2019",
+                "Field": "Computer Science",
+                "Description": "A Hackathon conducted to test the skills of the student",
+                "Logo": " ",
+                "Link": "https://sih.gov.in/sih2019",
+                "Reward Name": "Hackathon 2019"
+
+            }
+        ]
+    },
+    {
+        "Scores:": [
+            {
+                "Grade 10": [
+                    {
+                        "Title": "The Camford International School",
+                        "Score": "90",
+                        "Logo": " "
+                    }
+                ],
+                "Grade 12": [
+                    {
+                        "Title": "The Camford International School",
+                        "Score": "94",
+                        "Logo": " "
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Languages":[
+            {
+                "Name": "Ajay Ramesh",
+                "Proficiency" : "English, Telugu, Tamil"
+            }
+        ]
+    },
+    {
+        "Login Details":[
+            {
+                "List of IPs": "192.168.0.1",
+                "List of ":[
+                    {
+                        "City": "Coimbatore",
+                        "Country": "India"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Posts":[
+            {
+                "Timestamp": "30-09-2022 22:33:47",
+                "HTML Content": " ",
+                "Likes": [
+                    {
+                        "By MemberID": "prettyboi",
+                        "Timestamp": "30-09-2022 22:36:51"
+                    }
+                ],
+                "Comment": [
+                    {
+                        "By MemberID": "prettyboi",
+                        "Timestamp": "30-09-2022 22:37:08",
+                        "ID": "prettyboi",
+                        "Text": "Thats fire"
+                    }
+                ]
+            }
+        ]
+    }
+]
+}
