@@ -18,9 +18,14 @@ def deletebooking(rn):
     with open("rooms.json","w") as file:
         a=json.dump(file)
 
-def addbooking(rn,dt,p):
+def addbooking(rn,dt,p,by):
     with open("rooms.json","r") as file:
         a=json.load(file)
-    a.append({"room_no":rn,"date_time":dt,"p":purpose})
+    a.append({"room_no":rn,"date_time":dt,"purpose":purpose,"by":by})
     with open("rooms.json","w") as file:
         a=json.dump(file)
+
+def viewbookings():
+    with open(f"data/rooms.json") as f:
+        rooms = json.load(f)
+    return rooms.get("rooms")

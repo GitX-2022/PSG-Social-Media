@@ -3,7 +3,7 @@ import json, uuid
 import modules.editor as editor
 import modules.events as eventseditor
 import modules.people as people
-import modules.roombooking as rooms
+import modules.roombooking as roomseditor
 import modules.mailer_hasher as mail
 
 app = Flask(__name__)
@@ -119,10 +119,9 @@ def events():
 
 @app.route('/rooms')
 def rooms():
-    with open(f"data/rooms.json") as f:
-        rooms = json.load(f)
     return render_template("admin/view_room.htm",
-                            rooms = rooms.get("rooms"))
+                            rooms = roomseditor.viewbookings(),
+                            me = json.loads(session.get("login"))["roll"])
 
 @app.route('/rooms/delete/<code>@<dt>')
 def delete_booking(code,dt):
@@ -156,6 +155,11 @@ def chats():
                     user_chats.append(i.get("sender_ID").upper())
     return render_template("chat_main.html", user_chats = user_chats)
 
+@app.route('/profile-settings')
+def settings():
+    if request.method=='GET':
+        return render_template("profile_settings.html")
+
 @app.route('/chats/<roll>')
 def chat_roll(roll):
     with open(f"data/chats.json") as f:
@@ -168,10 +172,6 @@ def chat_roll(roll):
 
 @app.route('/chats/unsend/<id>')
 def delete_chat(id):
-    pass
-
-@app.route('/profile-settings')
-def settings():
     pass
 
 @app.route('/logout')

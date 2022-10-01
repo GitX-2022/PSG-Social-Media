@@ -35,13 +35,7 @@
 			  <div class="mdl-layout__drawer">
 			  	<br/>
 			    <span class="mdl-layout-title">Eventique</span>
-			    <nav class="mdl-navigation">
-			      <a class="mdl-navigation__link" href="{{url_for('dashboard')}}">Dashboard</a>
-			      <a class="mdl-navigation__link" href="">Events</a>
-			      <a class="mdl-navigation__link">My Profile</a>
-			      <a class="mdl-navigation__link" href="">Rooms</a>
-			      <a class="mdl-navigation__link" href="">Settings</a>
-			    </nav>
+			    <nav class="mdl-navigation"> <a class="mdl-navigation__link" href="{{url_for('dashboard')}}">Dashboard</a> <a class="mdl-navigation__link" href="{{url_for('events')}}">Events</a> <a class="mdl-navigation__link">My Profile</a> <a class="mdl-navigation__link" href="{{url_for('rooms')}}">Rooms</a> <a class="mdl-navigation__link" href="{{url_for('settings')}}">Settings</a> </nav>
 			  </div>
 			  <main class="mdl-layout__content" style="padding:15px">
 			    <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="min-height: 10%!important">
