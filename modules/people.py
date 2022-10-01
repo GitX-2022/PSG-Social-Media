@@ -1,147 +1,52 @@
 import json
 import datetime
 
-def send():
+def addUser(Roll_No, First_Name, Last_Name, Location, Thumbnail, About, Passwd, C_Title, C_Organization, C_Start_Date, C_End_Date, C_Field, C_Description, C_Logo, C_Link, L_Name, L_Proficiency, List_IP, L_City, L_Country):
     with open ("Hackathon/JSON/people.json","r") as source:
         obj = json.load(source)
     
-    Roll_No = str(input())
     data = {
     "People": [
     {
         "Roll_No.": Roll_No,
-        "First Name": str(input()),
-        "Last Name" : str(input()),
-        "Location": str(input()),
-        "Thumbnail": str(input()),
-        "About": str(input()),
-        "Education": [
-            {
-                "School": [
-                    {
-                        "Name": str(input()),
-                        "Start Date": str(datetime.datetime.now())[:-7],
-                        "End Date": str(datetime.datetime.now())[:-7],
-                        "Location": str(input()),
-                        "Description": str(input()),
-                        "Logo": str(input()),
-                        "Link": str(input())
-                    }
-                ],
-                "PSG College Of Technology": [
-                    {
-                        "Course": str(input()),
-                        "Start Date": str(datetime.datetime.now())[:-7],
-                        "End Date": str(datetime.datetime.now())[:-7],
-                        "Course Topic": str(input()),
-                        "Class": str(input())
-                    }
-                ]
-            }
-        ]
+        "First Name": First_Name,
+        "Last Name" : Last_Name,
+        "Location": Location,
+        "Thumbnail": Thumbnail,
+        "About": About,
+        "Passwd": Passwd,
     },
     {
         "Courses and Co-Curricular Experiences (Cerificates, Internships)": [
             {
-                "Title": str(input()),
-                "Organization": str(input()),
-                "Start Date": str(datetime.datetime.now())[:-7],
-                "End Date": str(datetime.datetime.now())[:-7],
-                "Field": str(input()),
-                "Description": str(input()),
-                "Logo": str(input()),
-                "Link": str(input())
+                "Title": C_Title,
+                "Organization": C_Organizaiton,
+                "Start Date": C_Start_Date,
+                "End Date": C_End_Date,
+                "Field": C_Field,
+                "Description": C_Description,
+                "Logo": C_Logo,
+                "Link": C_Link
 
-            },
-            {
-                "Title": str(input()),
-                "Organization": str(input()),
-                "Start Date": str(datetime.datetime.now())[:-7],
-                "End Date": str(datetime.datetime.now())[:-7],
-                "Field": str(input()),
-                "Description": str(input()),
-                "Logo": str(input()),
-                "Link": str(input())
-
-            }
-        ]
-    },
-    {
-        "Scores:": [
-            {
-                "Grade 10": [
-                    {
-                        "Title": str(input()),
-                        "Score": str(input()),
-                        "Logo": str(input())
-                    }
-                ],
-                "Grade 12": [
-                    {
-                        "Title": str(input()),
-                        "Score": str(input()),
-                        "Logo": str(input())
-                    }
-                ]
             }
         ]
     },
     {
         "Languages":[
             {
-                "Name": str(input()),
-                "Proficiency" : str(input())
+                "Name": L_Name,
+                "Proficiency" : L_Proficiency
             }
         ]
     },
     {
         "Login Details":[
             {
-                "List of IPs": str(input()),
+                "List of IPs": List_IP,
                 "List of ":[
                     {
-                        "City": str(input()),
-                        "Country": str(input())
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "Posts":[
-            {
-                "Timestamp": str(datetime.datetime.now()),
-                "HTML Content": str(input()),
-                "Likes": [
-                    {
-                        "By MemberID": str(input()),
-                        "Timestamp": str(input())
-                    }
-                ],
-                "Comment": [
-                    {
-                        "By MemberID": str(input()),
-                        "Timestamp": str(datetime.datetime.now()),
-                        "ID": str(input()),
-                        "Text": str(input())
-                    }
-                ]
-            },
-            {
-                "Timestamp": str(datetime.datetime.now()),
-                "HTML Content": str(input()),
-                "Likes": [
-                    {
-                        "By MemberID": str(input()),
-                        "Timestamp": str(datetime.datetime.now())
-                    }
-                ],
-                "Comment": [
-                    {
-                        "By MemberID": str(input()),
-                        "Timestamp": str(datetime.datetime.now()),
-                        "ID": str(input()),
-                        "Text": str(input())
+                        "City": L_City,
+                        "Country": L_Country
                     }
                 ]
             }
