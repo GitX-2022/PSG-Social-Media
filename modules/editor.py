@@ -3,15 +3,10 @@ import datetime
 
 
 
-def send():
+def send(sender_id, reciever_id, message, emoji):
     '''
     Sending the message and logging it to chats.json
     '''
-
-    sender_id = input()
-    receiver_id = input()
-    message = str(input())
-    emoji = input()
     
     with open("chats.json", "r") as source:
         obj = json.load(source)
