@@ -1,4 +1,6 @@
 body{
-    background: rgb(0,0,0);
+    background-repeat: no-repeat!important;
+    background-attachment: scroll!important;
+    background-size: cover!important;
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(39,36,69,1) 54%, rgba(93,84,164,1) 100%);
 }
