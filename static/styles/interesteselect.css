@@ -2,3 +2,7 @@
 	background-color: whitesmoke!important;
 	color: #6962AC!important;
 }
+
+.mdl-card{
+	border-radius: 10px!important;
+}
