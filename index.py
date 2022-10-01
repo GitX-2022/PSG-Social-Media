@@ -20,7 +20,8 @@ def login_page():
         passwd = request.form.get("password")
         # VERIFY PASSWORD
         session["login"] = json.dumps({"login":True,
-                                        "name":"Aaditya"}) # and login details
+                                        "name":"Aaditya",
+                                        "roll":"21Z202"}) # and login details
         return redirect(url_for("dashboard"))
 
 @app.route('/dashboard')
@@ -38,7 +39,6 @@ def dashboard():
 @app.route('/my-profile')
 def my_profile():
     return render_template("profile.html",
-                            name = json.loads(session.get("login"))["name"],
                             person={
                                     "roll_no": "21Z202",
                                     "name"   : "Aaditya",
@@ -49,7 +49,74 @@ def my_profile():
                                          "title":"Kind Person",
                                          "details":"Random act of Kindness Certificate"})
 
+@app.route('/events')
+def events():
+    return render_template("events.html",
+                            events = [
+                                        {
+                                            "logo" : "",
+                                            "title": "GitX",
+                                            "desc" : "GitHub Campus Club Hackathon"
+                                        },
+                                        {
+                                            "logo" : "",
+                                            "title": "What's Hackening?",
+                                            "desc" : "Ethical Hacking Hackathon"
+                                        }
+                                     ])
 
+@app.route('/rooms')
+def rooms():
+    with open(f"data/rooms.json") as f:
+        rooms = json.load(f)
+    return render_template("admin/view_room.htm",
+                            rooms = rooms.get("rooms"))
+
+@app.route('/rooms/delete/<code>@<dt>')
+def delete_booking(code,dt):
+    with open(f"data/rooms.json") as f:
+        rooms = json.load(f)
+    return render_template("admin/view_room.htm",
+                            rooms = rooms.get("rooms"))
+
+@app.route('/rooms/update/<code>@<dt>')
+def update_booking(code,dt):
+    with open(f"data/rooms.json") as f:
+        rooms = json.load(f)
+    return render_template("admin/view_room.htm",
+                            rooms = rooms.get("rooms"))
+
+@app.route('/chats')
+def chats():
+    with open(f"data/chats.json") as f:
+        chats = json.load(f)
+    user_chats = []
+    for i in chats.get("chat_logs"):
+        if (json.loads(session.get("login")).get("roll").upper()==i.get("sender_ID").upper()):
+            if i.get("receiver_ID").upper() not in user_chats:
+                if i.get("receiver_ID")!=json.loads(session.get("login")).get("roll").upper():
+                    print(user_chats)
+                    user_chats.append(i.get("receiver_ID").upper())
+        if (json.loads(session.get("login")).get("roll").upper()==i.get("receiver_ID").upper()):
+            if i.get("sender_ID").upper() not in user_chats:
+                if i.get("sender_ID")!=json.loads(session.get("login")).get("roll").upper():
+                    print(user_chats)
+                    user_chats.append(i.get("sender_ID").upper())
+    return render_template("chat_main.html", user_chats = user_chats)
+
+@app.route('/chats/<roll>')
+def chat_roll(roll):
+    with open(f"data/chats.json") as f:
+        chats = json.load(f)
+    my_chats = []
+    for i in chats.get("chat_logs"):
+        if (i.get("receiver_ID")==roll) or (i.get("sender_ID")==roll):
+            my_chats.append(i)
+    return render_template("chat_ui.html", my_chats = my_chats)
+
+@app.route('/chats/unsend/<id>')
+def delete_chat(id):
+    pass
 
 @app.route('/logout')
 def logout():

@@ -140,35 +140,29 @@
                     <th>BOOKED FOR</th>
                     <th>DELETE</th>
                     <th>UPDATE</th>
-                    <th>VIEW</th>
                 </tr>
             </thead><tbody>
+            	{% for i in rooms %}
                 <tr>
-                   <td>{{i["priority"]}}</td>
-                   <td>{{i["issue"]}}</td>
-                   <td>{{i["issue"]}}</td>
+                   <td>{{i["room_no"]}}</td>
+                   <td>{{i["date_time"]}}</td>
+                   <td>{{i["purpose"]}}</td>
                    <th>
-                   	<a href="{{url_for('redirek')}}?url={{url_for('issue_status_description',code=i['issueNo'])}}">
+                   	<a href="{{url_for('delete_booking',code=i['room_no'],dt=i['date_time'])}}">
                     <button style="font-size:10px!important;color:red;font-weight: bold;" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">
                       DELETE <i class="material-icons">delete</i>
                     </button>
                     </a>
                    </th>
                    <th>
-                   	<a href="{{url_for('redirek')}}?url={{url_for('issue_status_description',code=i['issueNo'])}}">
+                   	<a href="{{url_for('update_booking',code=i['room_no'],dt=i['date_time'])}}">
                     <button style="font-size:10px!important;color:red;font-weight: bold;" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">
                       UPDATE <i class="material-icons">file_upload</i>
                     </button>
                     </a>
                    </th>
-                   <td>
-                    <a href="{{url_for('redirek')}}?url={{url_for('issue_status_description',code=i['issueNo'])}}">
-                    <button style="font-size:10px!important;color:#2A4BAA;font-weight: bold;" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">
-                      VIEW <i class="material-icons">open_in_new</i>
-                    </button>
-                    </a>
-                   </td>
                 </tr>
+                {% endfor %}
             </tbody>
             </table>
             <script>

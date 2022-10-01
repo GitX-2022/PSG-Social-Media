@@ -11,7 +11,7 @@
 <head>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<title>[EVENTIQUE] Profile</title>
+	<title>[EVENTIQUE] Events</title>
 	<link rel="stylesheet" href="../static/styles/authpage.css"/>
 	<link rel="stylesheet" href="../static/styles/interesteselect.css"/>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
@@ -23,7 +23,7 @@
 			<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 			  <header class="mdl-layout__header">
 			    <div class="mdl-layout__header-row">
-			      <span class="mdl-layout-title">Profile</span>
+			      <span class="mdl-layout-title">Events</span>
 			    </div>
 			    <div class="mdl-layout-spacer"></div>
 			    <div class="mdl-card__menu" style="margin-top: -6px;">
@@ -37,42 +37,30 @@
 			    <span class="mdl-layout-title">Eventique</span>
 			    <nav class="mdl-navigation">
 			      <a class="mdl-navigation__link" href="{{url_for('dashboard')}}">Dashboard</a>
-			      <a class="mdl-navigation__link" href="">Events</a>
-			      <a class="mdl-navigation__link">My Profile</a>
-			      <a class="mdl-navigation__link" href="">Rooms</a>
+			      <a class="mdl-navigation__link">Events</a>
+			      <a class="mdl-navigation__link" href="{{url_for('my_profile')}}">My Profile</a>
+			      <a class="mdl-navigation__link" href="">Roooms</a>
 			      <a class="mdl-navigation__link" href="">Settings</a>
 			    </nav>
 			  </div>
 			  <main class="mdl-layout__content" style="padding:15px">
+
+			  	{% for i in events  %}
 			    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-                    <div class="mdl-card__title">
-                      <h2 class="mdl-card__title-text">{{person["roll_no"]}}</h2>
+                    <div class="mdl-card__title" style="background-image:url('{{i["logo"]}}'); height:176px; background-size:320px; background-repeat: no-repeat;">
+                      <h2 class="mdl-card__title-text">{{i["title"]}}</h2>
                     </div>
                     <div class="mdl-card__supporting-text">
-                      {{person["name"]}}
-                      <br>
-                      {{person["dept"]}}
-                      <br>
-                      {{", ".join(person["coding_languages"])}}
+                      {{i["desc"]}}
                     </div>
                     <div class="mdl-card__menu">
-                      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect certificate">
-                        <i class="material-icons">share</i>
+                      <button class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect certificate">
+                        Enroll
                       </button>
                     </div>
                   </div>
                   <br>
-
-                  <!--enter a for loop over here-->
-                  <div class="demo-card-wide mdl-card mdl-shadow--2dp certificate">
-                    <div class="mdl-card__title" style="background-image:url('{{recent_cert['image']}}'); height:176px; background-size:320px; background-repeat: no-repeat;">
-                      <h2 class="mdl-card__title-text">{{recent_cert['title']}}</h2>
-                    </div>
-                    <div class="mdl-card__supporting-text">
-                      {{recent_cert["details"]}}
-                    </div>
-                  </div>
-                  <!--exit the for loop-->
+          {% endfor %}
 			  </main>
 			</div>
 

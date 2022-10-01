@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href="chat_main.css"/>
+        <link rel="stylesheet" href="{{url_for('static',filename='styles/chat_main.css')}}"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
         <meta name="viewport" content="width=device-width, initial=-scale=1">
@@ -15,13 +15,12 @@
         </div>
         <br>
         
-        <!-- Enter for loop here according to the user -->
-        <button class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color:white; border-radius: 10px; width:100%; height: 90px;text-align: left;">
-            <h6 style="position:relative; bottom: 15px;">{{Receipent_Name}}</h6>
-            <p style="position:relative; bottom: 15px;">{{Recent_message}}</p>
-        </button>
+        {% for i in user_chats %}
+        <a href="{{url_for('chat_roll',roll=i)}}"><button class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color:white; border-radius: 10px; width:100%; text-align: left;">
+            <h6 style="position:relative; bottom: 15px;">{{i}}</h6>
+        </button></a>
         <hr>
-        <!-- End for loop here -->
+        {% endfor %}
 
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     </body>
