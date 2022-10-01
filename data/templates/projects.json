@@ -1,14 +1,17 @@
 {
     "Projects": [
         {
+            "Code": " ",
             "Title": " ",
             "Description": " ",
             "URL": " ",
             "Thumbnail": " ",
             "Languages (if Coding)": " ",
             "Vaccancies" : " ",
-            "Members": [" "],
-            "Code": " ",
+            "Members": [{
+                "Name": " ",
+                "Roll_No.": " "
+            }],
             "Milestones": [
                 {
                     "Name": " ",
