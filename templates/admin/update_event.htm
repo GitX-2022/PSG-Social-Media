@@ -36,14 +36,7 @@
 				  <div class="mdl-layout__drawer">
 				  	<br/>
 				    <span class="mdl-layout-title">Eventique</span>
-				    <nav class="mdl-navigation">
-				      <a class="mdl-navigation__link" href="">Dashboard</a>
-				      <a class="mdl-navigation__link" href="">My Events</a>
-				      <a class="mdl-navigation__link" href="">All Events</a>
-				      <a class="mdl-navigation__link" href="">My Profile</a>
-				      <a class="mdl-navigation__link" href="">Roooms</a>
-				      <a class="mdl-navigation__link" href="">Settings</a>
-				    </nav>
+				    <nav class="mdl-navigation"> <a class="mdl-navigation__link" href="{{url_for('dashboard')}}">Dashboard</a> <a class="mdl-navigation__link" href="{{url_for('events')}}">Events</a> <a class="mdl-navigation__link" href="{{url_for('my_profile')}}">My Profile</a> <a class="mdl-navigation__link" href="{{url_for('rooms')}}">Rooms</a> <a class="mdl-navigation__link" href="{{url_for('settings')}}">Settings</a> </nav>
 				  </div>
 				  <main class="mdl-layout__content">
 				    <div class="page-content" style="padding: 25px;">
@@ -77,7 +70,7 @@
 								</div>
 								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 								    <input class="mdl-textfield__input" type="text" id="name">
-								    <label class="mdl-textfield__label" for="name">Departments Open To (Separated by Comma)<label>
+								    <label class="mdl-textfield__label" for="name">Semesters Open To (Separated by Comma)<label>
 								</div>
 								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 								    <input class="mdl-textfield__input" type="text" id="name">

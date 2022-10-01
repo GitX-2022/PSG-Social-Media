@@ -36,34 +36,27 @@
 			  <div class="mdl-layout__drawer">
 			  	<br/>
 			    <span class="mdl-layout-title">Eventique</span>
-			    <nav class="mdl-navigation">
-			      <a class="mdl-navigation__link" href="">Dashboard</a>
-			      <a class="mdl-navigation__link" href="">My Events</a>
-			      <a class="mdl-navigation__link" href="">All Events</a>
-			      <a class="mdl-navigation__link" href="">My Profile</a>
-			      <a class="mdl-navigation__link" href="">Roooms</a>
-			      <a class="mdl-navigation__link" href="">Settings</a>
-			    </nav>
+			    <nav class="mdl-navigation"> <a class="mdl-navigation__link" href="{{url_for('dashboard')}}">Dashboard</a> <a class="mdl-navigation__link" href="{{url_for('events')}}">Events</a> <a class="mdl-navigation__link" href="{{url_for('my_profile')}}">My Profile</a> <a class="mdl-navigation__link" href="{{url_for('rooms')}}">Rooms</a> <a class="mdl-navigation__link" href="{{url_for('settings')}}">Settings</a> </nav>
 			  </div>
 			  <main class="mdl-layout__content">
 			    <div class="page-content" style="padding: 25px;">
 
 				    <div class="mdl-card mdl-shadow--2dp">
 					  <div class="mdl-card__supporting-text">
-						<form>
+						<form action="{{url_for('book_room')}}" method="POST">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							    <input class="mdl-textfield__input" type="text" id="room">
+							    <input class="mdl-textfield__input" name="room" type="text" id="room">
 							    <label class="mdl-textfield__label" for="room">Room #<label>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							    <input class="mdl-textfield__input" type="datetime-local" id="datetime">
+							    <input class="mdl-textfield__input" name="dt" type="datetime-local" id="datetime">
 							    <label class="mdl-textfield__label" for="datetime">Date and Time<label>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							    <input class="mdl-textfield__input" type="datetime" id="datetime">
+							    <input class="mdl-textfield__input" name="p" type="datetime" id="datetime">
 							    <label class="mdl-textfield__label" for="text">Reserved For (purpose)<label>
 							</div>
-							<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+							<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
 							  Update
 							</button>
 						</form>	

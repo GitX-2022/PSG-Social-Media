@@ -156,10 +156,28 @@ def chats():
 
 @app.route('/profile-settings')
 def settings():
+    return render_template("profile_settings.html",
+                            me = json.loads(session.get("login"))["roll"],
+                            admin = json.loads(session.get("login")).get("details").get("admin"))
+
+@app.route('/book-room', methods=['POST','GET'])
+def book_room():
     if request.method=='GET':
-        return render_template("profile_settings.html",
-                                me = json.loads(session.get("login"))["roll"],
-                                admin = json.loads(session.get("login")).get("details").get("admin"))
+        return render_template("admin/book_room.htm")
+    if request.method=='POST':
+        rn = request.form.get("room")
+        dt = request.form.get("dt")
+        p = request.form.get("p")
+        by = json.loads(session.get("login"))["roll"]
+        roomseditor.addbooking(rn,dt,p,by)
+        return redirect(url_for('rooms'))
+
+@app.route('/add-event')
+def add_event():
+    if request.method=='GET':
+        return render_template("admin/update_event.htm")
+    if request.method=='POST':
+        pass
 
 @app.route('/chats/<roll>')
 def chat_roll(roll):
