@@ -1,0 +1,58 @@
+{
+    "People": [
+        {
+            "Roll_No.": " ",
+            "First Name": " ",
+            "Last Name": " ",
+            "Location": " ",
+            "Thumbnail": " ",
+            "About": " ",
+            "Pass" : "",
+        },
+        {
+            "Courses and Co-Curricular Experiences (Cerificates, Internships)": [
+                {
+                    "Title": " ",
+                    "Organization": " ",
+                    "Start Date": " ",
+                    "End Date": " ",
+                    "Field": " ",
+                    "Description": " ",
+                    "Logo": " ",
+                    "Link": " "
+                },
+                {
+                    "Title": " ",
+                    "Organization": " ",
+                    "Start Date": " ",
+                    "End Date": " ",
+                    "Field": " ",
+                    "Description": " ",
+                    "Logo": " ",
+                    "Link": " "
+                }
+            ]
+        },
+        {
+            "Languages": [
+                {
+                    "Name": " ",
+                    "Proficiency": " "
+                }
+            ]
+        },
+        {
+            "Login Details": [
+                {
+                    "List of IPs": " ",
+                    "List of ": [
+                        {
+                            "City": " ",
+                            "Country": " "
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
