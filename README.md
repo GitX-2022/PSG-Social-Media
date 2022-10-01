@@ -22,6 +22,28 @@ Eventique is a club events management tool for the college and provides a handfu
 - E-Mail OTP Based Sign Up Verification
 - E-Mail OTP Based Forgot Password Feature
 
+## API
+
+The Application Programming Interface for Eventique provides 3 features:
+- Retrieve booked rooms
+- Log In to the Application in order to
+	- Retrive My Events
+	- Retrive Event Ticket
+
+### Usage
+
+To use the API, just call the relevant API Endpoints.
+
+```bash
+curl {APP_HOST}/api/rooms  # this will fetch a list of all booked rooms
+
+curl --data "rollno={ROLLNUMBER}&password={PASSWORD}" {APP_HOST}/api/login # this will log the user into the app using session cookies. a headless browserr may not achieve the task at all times
+
+curl {APP_HOST}/api/events # this will fetch a list of events the user has signed up for
+
+curl {APP_HOST}/api/ticket/{EVENT_ID} # this will return a PNG of the event ticket, which can be used for promotions
+```
+
 ## Tech Stack Used
 - Python3-Flask
 - Vanilla HTML
@@ -29,12 +51,14 @@ Eventique is a club events management tool for the college and provides a handfu
 - Vanilla Java Script
 - GUnicorn
 - NGINX Server
+- PIL//Pillow (Python Imaging Library)
 
 ## Documentation
 - <a href="https://getmdl.io/started/index.html">Material Design Lite</a>
 - <a href="https://flask.palletsprojects.com/en/2.2.x/">Python3-Flask</a>
 - <a href="https://gunicorn.org/#docs">GUnicorn</a>
 - <a href="https://nginx.org/en/docs/">NGINX</a>
+- <a href="https://pillow.readthedocs.io/en/stable/">Pillow</a>
 
 ## Authors
 - <a href="https://github.com/aadityarengarajan">@aadityarengarajan | Aaditya Rengarajan</a>
