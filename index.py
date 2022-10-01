@@ -1,9 +1,9 @@
 from flask import *
 import json
-from modules.editor import *
-from modules.events import *
-from modules.people import *
-from modules.roombooking import *
+import modules.editor as editor
+import modules.events as events
+import modules.people as people
+import modules.roombooking as rooms
 
 app = Flask(__name__)
 app.secret_key = "KrrrzPPghtfgSKbtJEQCTA"
@@ -18,15 +18,27 @@ def rerouter():
 @app.route('/login', methods=['POST','GET'])
 def login_page():
     if request.method=='GET':
-        return render_template("login.htm")
+        return render_template("login.htm", incorrect = "false")
     elif request.method=='POST':
+        try:
+            ip=dict(request.headers)['X-Forwarded-For']
+        except:
+            ip=dict(request.headers).get('X-Real-Ip')
         rollno = request.form.get("rollno")
         passwd = request.form.get("password")
-        # VERIFY PASSWORD
-        session["login"] = json.dumps({"login":True,
-                                        "name":"Aaditya",
-                                        "roll":"21Z202"}) # and login details
-        return redirect(url_for("dashboard"))
+        if people.authUser(rollno,passwd).get("auth")==True:
+            session["login"] = json.dumps({"login":True,
+                                        "name":(people.authUser(rollno,passwd).get("user").get("First Name")+people.authUser(rollno,passwd).get("user").get("Last Name")),
+                                        "roll":people.authUser(rollno,passwd).get("Roll No.")}) # and login details
+            return redirect(url_for("dashboard"))
+        else:
+            return render_template("login.htm", incorrect = "true")
+
+
+@app.route('/sign-up', methods=['POST','GET'])
+def signup_page():
+    if request.method=='GET':
+        return render_template("sign_up/sign_up.html")
 
 @app.route('/dashboard')
 def dashboard():

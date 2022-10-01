@@ -1,55 +1,19 @@
 {
-    "People": [
+    "people": [
         {
-            "Roll_No.": " ",
-            "First Name": " ",
-            "Last Name": " ",
-            "Location": " ",
-            "Thumbnail": " ",
-            "About": " ",
-            "Passwd" : "",
-        },
-        {
-            "Courses and Co-Curricular Experiences (Cerificates, Internships)": [
-                {
-                    "Title": " ",
-                    "Organization": " ",
-                    "Start Date": " ",
-                    "End Date": " ",
-                    "Field": " ",
-                    "Description": " ",
-                    "Logo": " ",
-                    "Link": " "
-                },
-                {
-                    "Title": " ",
-                    "Organization": " ",
-                    "Start Date": " ",
-                    "End Date": " ",
-                    "Field": " ",
-                    "Description": " ",
-                    "Logo": " ",
-                    "Link": " "
-                }
-            ]
-        },
-        {
+            "Roll No.": "21Z202",
+            "First Name": "Aaditya",
+            "Last Name": "Rengarajan",
+            "Passwd": "aadi2003",
             "Languages": [
-                {
-                    "Name": " ",
-                    "Proficiency": " "
-                }
-            ]
-        },
-        {
+                "Python",
+                "HTML",
+                "CSS"
+            ],
             "Login Details": [
                 {
-                    "List of IPs": " ",
-                    "List of ": [
-                        {
-                            "City": " ",
-                            "Country": " "
-                        }
+                    "List of IPs": [
+                        "127.0.0.1"
                     ]
                 }
             ]
