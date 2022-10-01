@@ -1,31 +1,115 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="{{url_for('static',filename='styles/chat_main.css')}}"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-        <meta name="viewport" content="width=device-width, initial=-scale=1">
-    </head>
-    <body>
-        <!-- Always shows a header, even in smaller screens. -->
-        <div class="mdl-layout__header-row name_title">
-            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" style="color:white;text-align: left;position: left;margin-left: -50;" onclick="history.back()">
-                      <i class="material-icons">arrow_back</i>
-                  </button>
-            <!-- Title -->
-            <span class="mdl-layout-title" style="margin-bottom: 5;padding-left: 10;color: white;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Chats</span>
-            <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>
-        </div>
-        <br>
-        
-        {% for i in user_chats %}
-        <a href="{{url_for('chat_roll',roll=i)}}"><button class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color:white; border-radius: 10px; width:100%; text-align: left;">
-            <h6 style="position:relative; bottom: 15px;">{{i}}</h6>
-        </button></a>
-        <hr>
-        {% endfor %}
-
+  <!--
+    This code is Open Source Code for the GitX GitHub x PSG Tech Hackathon 2022.
+	Team CodeHawk
+	- Aaditya Rengarajan
+	- Ajay Ramesh
+	- S Karun Vikhash
+	- Sanjay Kumaar Easwaran
+    -->
+  <head>
+    <link rel="stylesheet" href="{{url_for('static',filename='styles/chat_main.css')}}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <meta name="viewport" content="width=device-width, initial=-scale=1">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="cleartype" content="on" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:site_name" content="Eventique">
+    <meta itemprop="name" content="Eventique" />
+    <link href="https://i.imgur.com/Y1sqSEG.png" rel="shortcut icon" type="image/x-icon">
+    <link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="16x16" type="image/jpeg">
+    <link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="32x32" type="image/jpeg">
+    <link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="48x48" type="image/jpeg">
+    <link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="96x96" type="image/jpeg">
+    <link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="256x256" type="image/jpeg">
+    <link href="https://i.imgur.com/Y1sqSEG.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="https://i.imgur.com/Y1sqSEG.png" rel="mask-icon" type="image/jpeg">
+    <meta name="description" content="Eventique is an An developed for our college students to stay updated regarding events.">
+    <meta property="og:title" content="Eventique">
+    <meta property="og:image" content="https://i.imgur.com/Y1sqSEG.png">
+    <meta property="og:url" content="https://eventique.intellx.in">
+    <meta property="og:description" content="Eventique is an application developed for our college students to stay updated regarding events.">
+    <meta name="twitter:url" content="https://eventique.intellx.in">
+    <meta name="twitter:title" content="Eventique">
+    <meta name="twitter:description" content="Eventique is an application developed for our college students to stay updated regarding events.">
+    <meta name="twitter:image" content="https://i.imgur.com/Y1sqSEG.png">
+    <meta name="twitter:app:name:iphone" content="Eventique">
+    <meta name="twitter:app:id:iphone" content="id292738169">
+    <meta name="twitter:app:url:iphone" content="https://eventique.intellx.in">
+    <meta property="al:ios:app_name" content="Eventique">
+    <meta property="al:ios:app_store_id" content="292738169">
+    <meta property="al:ios:url" content="https://eventique.intellx.in">
+    <meta name="twitter:app:name:ipad" content="Eventique">
+    <meta name="twitter:app:id:ipad" content="id292738169">
+    <meta name="twitter:app:url:ipad" content="https://eventique.intellx.in">
+    <meta name="twitter:app:name:googleplay" content="Eventique">
+    <meta name="twitter:app:url:googleplay" content="https://eventique.intellx.in">
+    <meta property="al:android:app_name" content="Eventique">
+    <meta property="al:android:url" content="https://eventique.intellx.in">
+    <link rel="canonical" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="en" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="fr" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="de" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="es-ES" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="it" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="nl" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="pt" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="ru" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="ko" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="pt-BR" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="id" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="pl" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="tr" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="ro" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="ms" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="hu" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="sr" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="th" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="zh" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="ar" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="hr" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="es" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="cs" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="sk" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="sv" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="en-US" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="ja-JP" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="bg" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="da" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="no" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="fi" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="sq" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="sl" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="uk" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="he" href="https://eventique.intellx.in">
+    <link rel="alternate" hreflang="x-default" href="https://eventique.intellx.in">
+  </head>
+  <body>
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout__header-row name_title">
+      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" style="color:white;text-align: left;position: left;margin-left: -50;" onclick="history.back()">
+        <!--Back navigation button-->
+        <i class="material-icons">arrow_back</i>
+      </button>
+      <!-- Title -->
+      <span class="mdl-layout-title" style="margin-bottom: 5;padding-left: 10;color: white;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Chats</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+    </div>
+    <br>
+    <!--Displaying all the chats of the user using Jinja for loop-->
+    <!--Data is sourced from the stored json files--> {% for i in user_chats %} 
+    <a href="{{url_for('chat_roll',roll=i)}}">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color:white; border-radius: 10px; width:100%; text-align: left;">
+        <h6 style="position:relative; bottom: 15px;">{{i}}</h6>
+      </button>
+    </a>
+    <hr> {% endfor %}
+    <!--Material design elements-->
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    </body>
-    
+  </body>
 </html>
