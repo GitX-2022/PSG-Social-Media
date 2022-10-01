@@ -9,66 +9,172 @@
 	- Sanjay Kumaar Easwaran
 	-->
 <html>
-<head>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<title>[EVENTIQUE] Update A Booking</title>
-	<link rel="stylesheet" href="../../static/styles/authpage.css"/>
-	<link rel="stylesheet" href="../../static/styles/interesteselect.css"/>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"/>
-</head>
-<body>
+	<head>
+		<!-- TITLE -->
+		<title>[EVENTIQUE] Update A Booking</title>
+		<!-- LINKING CSS FILE -->
+		<link rel="stylesheet" href="{{url_for('static', filename='styles/authpage.css')}}"/>
+		<link rel="stylesheet" href="{{url_for('static', filename='styles/interesteselect.css')}}"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"/>
+		
+		<!-- META ELEMENTS TO IMPROVE SEO AND COMPATIBILTIY -->
+		<meta charset="UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="cleartype" content="on" />
+		<meta name="MobileOptimized" content="width" />
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta property="og:site_name" content="Eventique">
+		<meta itemprop="name" content="Eventique" />
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="shortcut icon" type="image/x-icon">
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="16x16" type="image/jpeg">
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="32x32" type="image/jpeg">
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="48x48" type="image/jpeg">
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="96x96" type="image/jpeg">
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="256x256" type="image/jpeg">
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="apple-touch-icon" sizes="180x180">
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="mask-icon" type="image/jpeg">
+		<meta name="description" content="Eventique is an An developed for our college students to stay updated regarding events.">
+		<meta property="og:title" content="Eventique">
+		<meta property="og:image" content="https://i.imgur.com/Y1sqSEG.png">
+		<meta property="og:url" content="https://eventique.intellx.in">
+		<meta property="og:description" content="Eventique is an application developed for our college students to stay updated regarding events.">
+		<meta name="twitter:url" content="https://eventique.intellx.in">
+		<meta name="twitter:title" content="Eventique">
+		<meta name="twitter:description" content="Eventique is an application developed for our college students to stay updated regarding events.">
+		<meta name="twitter:image" content="https://i.imgur.com/Y1sqSEG.png">
+		<meta name="twitter:app:name:iphone" content="Eventique">
+		<meta name="twitter:app:id:iphone" content="id292738169">
+		<meta name="twitter:app:url:iphone" content="https://eventique.intellx.in">
+		<meta property="al:ios:app_name" content="Eventique">
+		<meta property="al:ios:app_store_id" content="292738169">
+		<meta property="al:ios:url" content="https://eventique.intellx.in">
+		<meta name="twitter:app:name:ipad" content="Eventique">
+		<meta name="twitter:app:id:ipad" content="id292738169">
+		<meta name="twitter:app:url:ipad" content="https://eventique.intellx.in">
+		<meta name="twitter:app:name:googleplay" content="Eventique">
+		<meta name="twitter:app:url:googleplay" content="https://eventique.intellx.in">
+		<meta property="al:android:app_name" content="Eventique">
+		<meta property="al:android:url" content="https://eventique.intellx.in">
+		<link rel="canonical" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="en" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="fr" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="de" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="es-ES" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="it" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="nl" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="pt" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="ru" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="ko" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="pt-BR" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="id" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="pl" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="tr" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="ro" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="ms" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="hu" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="sr" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="th" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="zh" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="ar" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="hr" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="es" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="cs" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="sk" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="sv" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="en-US" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="ja-JP" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="bg" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="da" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="no" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="fi" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="sq" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="sl" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="uk" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="he" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="x-default" href="https://eventique.intellx.in">
+	</head>
+	<body>
 		<div class="screen">
-
+			<!-- HEADER TO DISPLAY TEH TITLE OF THE PAGE -->
 			<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-			  <header class="mdl-layout__header">
-			    <div class="mdl-layout__header-row">
-			      <span class="mdl-layout-title">Update A Booking</span>
-			    </div>
-			    <div class="mdl-layout-spacer"></div>
-			    <div class="mdl-card__menu" style="margin-top: -6px;">
-				  <button onclick="window.location = '{{url_for('chats')}}'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" style="transform: rotate(-30deg);">
-				      <i class="material-icons">send</i>
-				  </button>
+			<header class="mdl-layout__header">
+				<div class="mdl-layout__header-row">
+					<span class="mdl-layout-title">
+						Update A Booking
+					</span>
 				</div>
-			  </header>
-			  <div class="mdl-layout__drawer">
-			  	<br/>
-			    <span class="mdl-layout-title">Eventique</span>
-			    <nav class="mdl-navigation"> <a class="mdl-navigation__link" href="{{url_for('dashboard')}}">Dashboard</a> <a class="mdl-navigation__link" href="{{url_for('events')}}">Events</a> <a class="mdl-navigation__link" href="{{url_for('my_profile')}}">My Profile</a> <a class="mdl-navigation__link" href="{{url_for('rooms')}}">Rooms</a> <a class="mdl-navigation__link" href="{{url_for('settings')}}">Settings</a> </nav>
-			  </div>
-			  <main class="mdl-layout__content">
-			    <div class="page-content" style="padding: 25px;">
-
-				    <div class="mdl-card mdl-shadow--2dp">
-					  <div class="mdl-card__supporting-text">
-						<form action="{{url_for('book_room')}}" method="POST">
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							    <input class="mdl-textfield__input" name="room" type="text" id="room">
-							    <label class="mdl-textfield__label" for="room">Room #<label>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							    <input class="mdl-textfield__input" name="dt" type="datetime-local" id="datetime">
-							    <label class="mdl-textfield__label" for="datetime">Date and Time<label>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							    <input class="mdl-textfield__input" name="p" type="datetime" id="datetime">
-							    <label class="mdl-textfield__label" for="text">Reserved For (purpose)<label>
-							</div>
-							<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-							  Update
-							</button>
-						</form>	
-					  </div>		
-					</div>
-			    </div>
-			  </main>
+				<!-- BUTTON TO REDIRECT USER TO CHATS -->
+				<div class="mdl-layout-spacer"></div>
+				<div class="mdl-card__menu" style="margin-top: -6px;">
+					<button onclick="window.location = '{{url_for('chats')}}'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" style="transform: rotate(-30deg);">
+					<i class="material-icons">
+						send
+					</i>
+					</button>
+				</div>
+			</header>
+			<div class="mdl-layout__drawer">
+				<br/>
+				<span class="mdl-layout-title">
+					Eventique
+				</span>
+				<!-- SANDWICH MENU -->
+				<nav class="mdl-navigation"> 
+					<a class="mdl-navigation__link" href="{{url_for('dashboard')}}">
+						Dashboard
+					</a> 
+					<a class="mdl-navigation__link" href="{{url_for('events')}}">
+						Events
+					</a> 
+					<a class="mdl-navigation__link" href="{{url_for('my_profile')}}">
+						My Profile
+					</a> 
+					<a class="mdl-navigation__link" href="{{url_for('rooms')}}">
+						Rooms
+					</a> 
+					<a class="mdl-navigation__link" href="{{url_for('settings')}}">
+						Settings
+					</a> 
+				</nav>
 			</div>
-
-
-
+			<main class="mdl-layout__content">
+				<div class="page-content" style="padding: 25px;">
+					<!-- BOOKING A ROOM -->
+					<div class="mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__supporting-text">
+							<form action="{{url_for('book_room')}}" method="POST">
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+									<!-- GIVING THE ROOM NUMEBR -->
+									<input class="mdl-textfield__input" name="room" type="text" id="room">
+									<label class="mdl-textfield__label" for="room">
+										Room #
+									<label>
+								</div>
+								<!-- GIVING DATE AND TIME -->
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+									<input class="mdl-textfield__input" name="dt" type="datetime-local" id="datetime">
+									<label class="mdl-textfield__label" for="datetime">
+										Date and Time
+									<label>
+								</div>
+								<!-- STATING THE PURPOSE -->
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								    <input class="mdl-textfield__input" name="p" type="datetime" id="datetime">
+								    <label class="mdl-textfield__label" for="text">Reserved For (purpose)<label>
+								</div>
+								<!-- UPDATE/POST BUTTON -->
+								<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+									Update
+								</button>
+							</form>	
+						</div>		
+					</div>
+				</div>
+			</main>
 		</div>
-	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-</body>
+		<!-- MATERIAL DESIGN ELEMENTS -->
+		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	</body>
 </html>
