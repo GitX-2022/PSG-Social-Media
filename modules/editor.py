@@ -1,24 +1,38 @@
 import json
 import datetime
 
+'''
+This code is Open Source Code for the GitX GitHub x PSG Tech Hackathon 2022.
+	Team CodeHawk
+	- Aaditya Rengarajan
+	- Ajay Ramesh
+	- S Karun Vikhash
+	- Sanjay Kumaar Easwaran
+'''
 
 
-def send(sender_id, reciever_id, message, emoji):
+def send(sender_id:int, reciever_id:int, message:str):
     '''
-    Sending the message and logging it to chats.json
+    Inputs(4):
+        sender_id(int): Unique identifier for the sender/user
+        reciever_id(int): Unique identifier for the receiver
+        message(string): Actual message content
+    
+    Output:
+        Data is logged into the json file
     '''
     
     with open("chats.json", "r") as source:
         obj = json.load(source)
 
-    data = {"text_id": str(int(obj["chat_logs"][-1]["text_id"]) + 1),"sender_ID": sender_id , "receiver_ID":receiver_id ,"timestamp": str(datetime.datetime.now())[:-7], "message": message, "emoji": emoji, "reaction": ""}
+    data = {"text_id": str(int(obj["chat_logs"][-1]["text_id"]) + 1),"sender_ID": sender_id , "receiver_ID":receiver_id ,"timestamp": str(datetime.datetime.now())[:-7], "message": message, "emoji": "obslete", "reaction": ""}
     obj["chat_logs"].append(data)
 
     with open("chats.json", "w") as dest:
         json.dump(obj, dest, indent=4)
 
 
-def update(text_id, sender_id, receiver_id):
+def update(text_id:int, sender_id:int, receiver_id:int):
     '''
     Updating if the user gives any reactions in chats.json
     Parameters :(text_id, sender_id, receiver_id)
