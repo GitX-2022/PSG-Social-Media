@@ -1,24 +1,58 @@
 import json
 import datetime
 
-def add(eve_code, eve_name, start_date, end_date, sem_open, dep_open, or_name, desc, atnd):
-    with open ("Hackathon/JSON/events.json", "r") as source:
+def add(eve_name:str,
+        start_date:str,
+        end_date:str,
+        sem_open:str,
+        dep_open:list,
+        or_name:str,
+        desc:str,
+        atnd=[]):
+    with open ("data/events.json", "r") as source:
         obj = json.load(source)
-    eve_code = str(int(obj["Events"][-1]["Event Code"])+1)
+    try:
+        eve_code = str(int(obj["Events"][-1]["Event Code"])+1)
+    except:
+        eve_code = "1"
     data = {"Event Code": eve_code,"Event Name": eve_name, "Start Date": start_date, "End Date": end_date, "Semesters Open To": sem_open, "Departments Open To ": dep_open, "Organizer's Name": or_name, "Description":desc, "Attendees":atnd}
     obj["Events"].append(data)
 
-    with open("Hackathon/JSON/events.json", "w") as dest:
+    with open("data/events.json", "w") as dest:
         json.dump(obj, dest, indent=4)
     
 def read():
-    with open("Hackathon/JSON/events.json", "r") as source:
+    with open("data/events.json", "r") as source:
         obj = json.load(source)
-    for i in (obj["Events"]):
-        print(i)
+    return obj["Events"]
+
+def userEvents(user:str):
+    with open("data/events.json", "r") as source:
+        obj = json.load(source)
+    myEvents = []
+    for event in obj["Events"]:
+        if user.upper() in event["Attendees"]:
+            myEvents.append(event)
+    return myEvents
+
+def attendEvent(user:str, eventID:int):
+    with open("data/events.json", "r") as source:
+        obj = json.load(source)
+
+    newEvents = []
+    for event in obj["Events"]:
+        if str(eventID) == str(event["Event Code"]):
+            abc = event["Attendees"]
+            abc.append(user)
+            event["Attendees"] = abc
+        print(event)
+        newEvents.append(event)
+
+    with open("data/events.json", "w") as dest:
+        json.dump({"Events":newEvents}, dest, indent=4)
 
 def delete(Event_Code):
-    with open ("Hackathon/JSON/events.json", "r") as source:
+    with open ("data/events.json", "r") as source:
         obj = json.load(source)
     for i in obj["Events"]:
         for j in list(i.keys()):
@@ -26,33 +60,25 @@ def delete(Event_Code):
                 if (i[j][k]["Event Code"] == Event_Code):
                     obj["Events"].remove(i)
      
-    for i in obj["Events"]:
-        print(i)
-    with open("Hackathon/JSON/events.json", "w") as dest:
+    with open("data/events.json", "w") as dest:
         json.dump(obj, dest, indent=4)
 
-def update(Event_Code):
-    with open ("Hackathon/JSON/events.json", "w") as source:
-        obj = json.load(source)
-    for i in obj["Events"]:
-        print("Hello World")
-
-def update(eve_code):
+def update(eve_id:str,
+        eve_name:str,
+        start_date:str,
+        end_date:str,
+        sem_open:str,
+        dep_open:list,
+        or_name:str,
+        desc:str,
+        atnd:list):
     
-    with open("Hackathon/JSON/events.json", "r") as source:
-        obj = json.load(source)
-    for i in (obj["Events"]):
-        if(i["Event Code"] == eve_code):
-            i["Attendees"].append(input())
-            i["Event Name"] = input()
-            i["Event Code"]=input()
-            i["Event Name"]=input()
-            i["Start Date"]=input()
-            i["End Date"]=input()
-            i["Semesters Open To"]=input()
-            i["Departments Open To"]=input()
-            i["Organizer's Name"]=input()
-            i["Description"]=input()
-
-    with open("Hackathon/JSON/events.json", "w") as dest:
-        json.dump(obj, dest, indent=4)
+    delete(eve_id)
+    add(eve_name,
+        start_date,
+        end_date,
+        sem_open,
+        dep_open,
+        or_name,
+        desc,
+        atnd)

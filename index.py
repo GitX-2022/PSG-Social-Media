@@ -1,7 +1,7 @@
 from flask import *
 import json, uuid
 import modules.editor as editor
-import modules.events as events
+import modules.events as eventseditor
 import modules.people as people
 import modules.roombooking as rooms
 import modules.mailer_hasher as mail
@@ -97,12 +97,7 @@ def forgot_pass():
 def dashboard():
     return render_template("dashboard.htm",
                             name = json.loads(session.get("login"))["name"],
-                            events=[
-                                    {
-                                        "event_name" : "GitX",
-                                        "event_details" : "Code Hawk Official"
-                                    }
-                                   ])
+                            events=eventseditor.userEvents(json.loads(session.get("login"))["roll"]))
 
 
 @app.route('/my-profile')

@@ -1,0 +1,23 @@
+{
+    "Events": [
+        {
+            "Event Code": "1",
+            "Event Name": "GitX",
+            "Start Date": "Yesterday",
+            "End Date": "Tomorrow",
+            "Semesters Open To": "1",
+            "Departments Open To ": [
+                "CSE",
+                "IT",
+                "AMCS",
+                "ECE",
+                "EEE"
+            ],
+            "Organizer's Name": "GitHub Campus Club",
+            "Description": "Hackathon.",
+            "Attendees": [
+                "21Z247"
+            ]
+        }
+    ]
+}
