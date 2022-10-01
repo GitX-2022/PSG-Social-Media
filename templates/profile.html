@@ -44,26 +44,18 @@
 			    </nav>
 			  </div>
 			  <main class="mdl-layout__content" style="padding:15px">
-			    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+			    <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="min-height: 10%!important">
                     <div class="mdl-card__title">
-                      <h2 class="mdl-card__title-text">{{person["roll_no"]}}</h2>
+                      <h2 class="mdl-card__title-text">{{person["First Name"]}} {{person["Last Name"]}}</h2>
                     </div>
                     <div class="mdl-card__supporting-text">
-                      {{person["name"]}}
+                      {{person["Roll No."]}}
                       <br>
-                      {{person["dept"]}}
-                      <br>
-                      {{", ".join(person["coding_languages"])}}
-                    </div>
-                    <div class="mdl-card__menu">
-                      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect certificate">
-                        <i class="material-icons">share</i>
-                      </button>
+                      {{", ".join(person["Languages"])}}
                     </div>
                   </div>
                   <br>
 
-                  <!--enter a for loop over here-->
                   <div class="demo-card-wide mdl-card mdl-shadow--2dp certificate">
                     <div class="mdl-card__title" style="background-image:url('{{recent_cert['image']}}'); height:176px; background-size:320px; background-repeat: no-repeat;">
                       <h2 class="mdl-card__title-text">{{recent_cert['title']}}</h2>
@@ -72,7 +64,6 @@
                       {{recent_cert["details"]}}
                     </div>
                   </div>
-                  <!--exit the for loop-->
 			  </main>
 			</div>
 

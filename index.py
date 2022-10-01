@@ -102,13 +102,9 @@ def dashboard():
 
 @app.route('/my-profile')
 def my_profile():
+    print(json.loads(session.get("login"))["details"])
     return render_template("profile.html",
-                            person={
-                                    "roll_no": "21Z202",
-                                    "name"   : "Aaditya",
-                                    "dept"   : "CSE",
-                                    "coding_languages" : ["Python", "HTML"]
-                                },
+                            person=json.loads(session.get("login"))["details"],
                             recent_cert={"image":"https://ecdn.teacherspayteachers.com/thumbitem/-RAK-Random-Acts-of-Kindness-EDITABLE-Certificates-5243375-1583679292/original-5243375-1.jpg",
                                          "title":"Kind Person",
                                          "details":"Random act of Kindness Certificate"})
