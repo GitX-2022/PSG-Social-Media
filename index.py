@@ -25,7 +25,7 @@ def login_page():
         passwd = request.form.get("password")
         if people.authUser(rollno,passwd).get("auth")==True:
             session["login"] = json.dumps({"login":True,
-                                        "name":(people.authUser(rollno,passwd).get("user").get("First Name")+people.authUser(rollno,passwd).get("user").get("Last Name")),
+                                        "name":(people.authUser(rollno,passwd).get("user").get("First Name")+" "+people.authUser(rollno,passwd).get("user").get("Last Name")),
                                         "roll":people.authUser(rollno,passwd).get("user").get("Roll No."),
                                         "details":people.authUser(rollno,passwd).get("user")})
             return redirect(url_for("dashboard"))
@@ -54,7 +54,7 @@ def signup_page():
                 passwd = json.loads(session.get("signUpForm")).get("user_password")
                 session.clear()
                 session["login"] = json.dumps({"login":True,
-                                           "name":(people.authUser(rollno,passwd).get("user").get("First Name")+people.authUser(rollno,passwd).get("user").get("Last Name")),
+                                           "name":(people.authUser(rollno,passwd).get("user").get("First Name")+" "+people.authUser(rollno,passwd).get("user").get("Last Name")),
                                            "roll":people.authUser(rollno,passwd).get("user").get("Roll No."),
                                            "details":people.authUser(rollno,passwd).get("user")})
                 return redirect(url_for("dashboard"))
@@ -86,7 +86,7 @@ def forgot_pass():
                 passwd = request.form.get("pwd")
                 session.clear()
                 session["login"] = json.dumps({"login":True,
-                                           "name":(people.authUser(rollno,passwd).get("user").get("First Name")+people.authUser(rollno,passwd).get("user").get("Last Name")),
+                                           "name":(people.authUser(rollno,passwd).get("user").get("First Name")+" "+people.authUser(rollno,passwd).get("user").get("Last Name")),
                                            "roll":people.authUser(rollno,passwd).get("user").get("Roll No."),
                                            "details":people.authUser(rollno,passwd).get("user")})
                 return redirect(url_for("dashboard"))
