@@ -7,22 +7,22 @@
 </head>
 <body>
 
-  <form action="index.html" method="post">
+  <form action="{{url_for('signup_page')}}" method="POST">
   
     <h1>Sign Up</h1>
     
     <fieldset>
       <legend>Your basic info</legend>
       <label for="first_name">First Name:</label>
-      <input type="text" id="name" name="user_name">
+      <input type="text" id="name" name="fname">
       <label for="last_name">Last Name:</label>
-      <input type="text" id="name" name="user_name">
-      <label for="mail">Roll No.:</label>
-      <input type="email" id="mail" name="user_email">
+      <input type="text" id="name" name="lname">
+      <label for="roll">Roll No.:</label>
+      <input type="text" id="roll" name="rollno">
       <label for="password">Password:</label>
       <input type="password" id="password" name="user_password">
-      <label for="password"> Confirm Password:</label>
-      <input type="password" id="password" name="user_password"> 
+      <label for="langs"> List Languages You Know (separated by commas):</label>
+      <input type="text" id="langs" name="languages"> 
     </fieldset>
 
     <fieldset>

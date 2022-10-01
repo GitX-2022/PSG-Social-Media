@@ -1,9 +1,10 @@
 from flask import *
-import json
+import json, uuid
 import modules.editor as editor
 import modules.events as events
 import modules.people as people
 import modules.roombooking as rooms
+import modules.mailer_hasher as mail
 
 app = Flask(__name__)
 app.secret_key = "KrrrzPPghtfgSKbtJEQCTA"
@@ -20,16 +21,13 @@ def login_page():
     if request.method=='GET':
         return render_template("login.htm", incorrect = "false")
     elif request.method=='POST':
-        try:
-            ip=dict(request.headers)['X-Forwarded-For']
-        except:
-            ip=dict(request.headers).get('X-Real-Ip')
         rollno = request.form.get("rollno")
         passwd = request.form.get("password")
         if people.authUser(rollno,passwd).get("auth")==True:
             session["login"] = json.dumps({"login":True,
                                         "name":(people.authUser(rollno,passwd).get("user").get("First Name")+people.authUser(rollno,passwd).get("user").get("Last Name")),
-                                        "roll":people.authUser(rollno,passwd).get("Roll No.")}) # and login details
+                                        "roll":people.authUser(rollno,passwd).get("user").get("Roll No."),
+                                        "details":people.authUser(rollno,passwd).get("user")})
             return redirect(url_for("dashboard"))
         else:
             return render_template("login.htm", incorrect = "true")
@@ -39,6 +37,61 @@ def login_page():
 def signup_page():
     if request.method=='GET':
         return render_template("sign_up/sign_up.html")
+    if request.method=='POST':
+        if session.get("OTP"):
+            if session.get("OTP")==request.form.get("OTP"):
+                try:
+                    ip=dict(request.headers)['X-Forwarded-For']
+                except:
+                    ip=dict(request.headers).get('X-Real-Ip')
+                people.addUser(json.loads(session.get("signUpForm")).get("rollno"),
+                                json.loads(session.get("signUpForm")).get("fname"),
+                                json.loads(session.get("signUpForm")).get("lname"),
+                                json.loads(session.get("signUpForm")).get("user_password"),
+                                ", ".split(request.form.get("languages")),
+                                ip)
+                rollno = json.loads(session.get("signUpForm")).get("rollno")
+                passwd = json.loads(session.get("signUpForm")).get("user_password")
+                session.clear()
+                session["login"] = json.dumps({"login":True,
+                                           "name":(people.authUser(rollno,passwd).get("user").get("First Name")+people.authUser(rollno,passwd).get("user").get("Last Name")),
+                                           "roll":people.authUser(rollno,passwd).get("user").get("Roll No."),
+                                           "details":people.authUser(rollno,passwd).get("user")})
+                return redirect(url_for("dashboard"))
+            else:
+                return json.dumps(['invalid OTP',session.get("OTP"),request.form.get("OTP"),session.get("OTP")==request.form.get("OTP")], indent=4)
+        else:
+            session["OTP"] = str(uuid.uuid4()).split("-")[0].upper()
+            mail.send(str(request.form.get("rollno")+"@psgtech.ac.in"),"Your OTP for Eventique",session.get("OTP"))
+            session["signUpForm"] = json.dumps(dict(request.form))
+            return render_template("sign_up/confirm_ip.htm")
+
+@app.route('/forgot-password', methods=['POST','GET'])
+def forgot_pass():
+    if request.method=='GET':
+        print(dict(request.args))
+        session["OTP"] = str(uuid.uuid4()).split("-")[0].upper()
+        mail.send(str(dict(request.args).get("rollno")+"@psgtech.ac.in"),"Your OTP for Eventique",session.get("OTP"))
+        session["rollno"] = (str(dict(request.args).get("rollno")))
+        return render_template("forgot_pass/retrieve_otp.htm")
+    if request.method=='POST':
+        if session.get("OTP"):
+            if session.get("OTP")==request.form.get("OTP"):
+                try:
+                    ip=dict(request.headers)['X-Forwarded-For']
+                except:
+                    ip=dict(request.headers).get('X-Real-Ip')
+                people.chgPwd(session.get("rollno"), request.form.get("pwd"))
+                rollno = session.get("rollno")
+                passwd = request.form.get("pwd")
+                session.clear()
+                session["login"] = json.dumps({"login":True,
+                                           "name":(people.authUser(rollno,passwd).get("user").get("First Name")+people.authUser(rollno,passwd).get("user").get("Last Name")),
+                                           "roll":people.authUser(rollno,passwd).get("user").get("Roll No."),
+                                           "details":people.authUser(rollno,passwd).get("user")})
+                return redirect(url_for("dashboard"))
+            else:
+                return json.dumps(['invalid OTP',session.get("OTP"),request.form.get("OTP"),session.get("OTP")==request.form.get("OTP")], indent=4)
 
 @app.route('/dashboard')
 def dashboard():

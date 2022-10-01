@@ -4,7 +4,7 @@
             "Roll No.": "21Z202",
             "First Name": "Aaditya",
             "Last Name": "Rengarajan",
-            "Passwd": "aadi2003",
+            "Passwd": "aaditya",
             "Languages": [
                 "Python",
                 "HTML",
@@ -15,6 +15,18 @@
                     "List of IPs": [
                         "127.0.0.1"
                     ]
+                }
+            ]
+        },
+        {
+            "Roll No.": "21Z247",
+            "First Name": "Karun",
+            "Last Name": "Vikhash",
+            "Passwd": "GENESIS",
+            "Languages": [],
+            "Login Details": [
+                {
+                    "List of IPs": []
                 }
             ]
         }

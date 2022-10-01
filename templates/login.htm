@@ -26,7 +26,7 @@
 <body>
 		<div class="screen">
 			<div class="screen__content">
-				<form class="login" method="POST" action="{{url_for('login_page')}}">
+				<form class="login" method="POST" action="{{url_for('login_page')}}" id="login-form">
 					<div class="login__field">
 						{% if incorrect=="true" %}
 					<p style="font-weight: bold;color:red">incorrect details, try again.</p><br/>
@@ -46,12 +46,14 @@
 						<span class="button__text">Log In</span>
 						<i class="button__icon fas fa-chevron-right"></i>
 					</button>				
-				</form>
+				
 				<div class="social-login">
-					<p>forgot password?</p><br/>
+					<a href="javascript:document.getElementById('login-form').action='{{url_for('forgot_pass')}}';document.getElementById('login-form').method='GET';document.getElementById('login-form').submit();" href="{{url_for('forgot_pass')}}" style="text-decoration
+					:none;color: inherit;"><p>forgot password?</p></button><br/>
 					<a href="{{url_for('signup_page')}}" style="text-decoration
 					:none;color: inherit;"><p>sign up.</p></a>
 				</div>
+				</form>
 			</div>
 			<div class="screen__background">
 				<span class="screen__background__shape screen__background__shape4"></span>

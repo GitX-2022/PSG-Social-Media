@@ -20,25 +20,19 @@
 <body>
 		<div class="screen">
 			<div class="screen__content">
-				<form class="login">
+				<form class="login" action="{{url_for('forgot_pass')}}" method="POST">
 					<div class="login__field">
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					      <input class="mdl-textfield__input" type="number" id="sample3">
+					      <input class="mdl-textfield__input" type="text" name="OTP" id="sample3">
 					      <label class="mdl-textfield__label" for="sample3">OTP</label>
 				    	</div>
 				    </div>
 				    <div class="login__field">
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					      <input class="mdl-textfield__input" type="password" id="sample3">
+					      <input class="mdl-textfield__input" type="password" name="pwd" id="sample3">
 					      <label class="mdl-textfield__label" for="sample3">New Password</label>
 				    	</div>
 				    </div>
-				    <div class="login__field">
-				    	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					      <input class="mdl-textfield__input" type="password" id="sample3">
-					      <label class="mdl-textfield__label" for="sample3">Confirm Password</label>
-				    	</div>
-					</div>
 					<button class="button login__submit">
 						<span class="button__text">Change Password</span>
 						<i class="button__icon fas fa-chevron-right"></i>
