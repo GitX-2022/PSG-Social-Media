@@ -1,5 +1,7 @@
 from flask import *
 import json, uuid
+from datetime import datetime
+
 import modules.editor as editor
 import modules.events as eventseditor
 import modules.people as people
@@ -175,11 +177,11 @@ def chats():
     user_chats = []
     for i in chats.get("chat_logs"):
         if (json.loads(session.get("login")).get("roll").upper()==i.get("sender_ID").upper()):
-            if i.get("receiver_ID").upper() not in user_chats:
-                if i.get("receiver_ID")!=json.loads(session.get("login")).get("roll").upper():
+            if i.get("reciever_ID").upper() not in user_chats:
+                if i.get("reciever_ID")!=json.loads(session.get("login")).get("roll").upper():
                     print(user_chats)
-                    user_chats.append(i.get("receiver_ID").upper())
-        if (json.loads(session.get("login")).get("roll").upper()==i.get("receiver_ID").upper()):
+                    user_chats.append(i.get("reciever_ID").upper())
+        if (json.loads(session.get("login")).get("roll").upper()==i.get("reciever_ID").upper()):
             if i.get("sender_ID").upper() not in user_chats:
                 if i.get("sender_ID")!=json.loads(session.get("login")).get("roll").upper():
                     print(user_chats)
@@ -191,15 +193,25 @@ def chat_roll(roll):
     with open(f"data/chats.json") as f:
         chats = json.load(f)
     my_chats = []
+    print(chats)
     for i in chats.get("chat_logs"):
-        if (i.get("receiver_ID")==roll) or (i.get("sender_ID")==roll):
+        if (i.get("reciever_ID").upper()==roll.upper()) or (i.get("sender_ID").upper()==roll.upper()):
             my_chats.append(i)
     return render_template("chat_ui.html", my_chats = my_chats, person=roll,
                             me = json.loads(session.get("login"))["roll"])
 
-@app.route('/chats/unsend/<id>')
+@app.route('/chats/send/<id>', methods=['POST', 'GET'])
+def send_chat(id):
+    to = id
+    message = request.form.get("message")
+    fro = json.loads(session.get("login"))["roll"]
+    editor.send(fro, to, message)
+    return redirect(url_for("chat_roll", roll=to))
+
+@app.route('/chats/unsend/<id>', methods=['POST', 'GET'])
 def delete_chat(id):
-    pass
+    editor.delete(id)
+    return redirect(url_for("chat_roll", roll=request.args.get("callback")))
 
 @app.route('/logout')
 def logout():
