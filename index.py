@@ -33,7 +33,7 @@ def login_page():
         return render_template("login.htm", incorrect = "false")
     elif request.method=='POST':
         rollno = request.form.get("rollno")
-        passwd = request.form.get("password")
+        passwd = mail.get_hash(request.form.get("password"))
         if people.authUser(rollno,passwd).get("auth")==True:
             session["login"] = json.dumps({"login":True,
                                         "name":(people.authUser(rollno,passwd).get("user").get("First Name")+" "+people.authUser(rollno,passwd).get("user").get("Last Name")),
@@ -58,11 +58,11 @@ def signup_page():
                 people.addUser(json.loads(session.get("signUpForm")).get("rollno"),
                                 json.loads(session.get("signUpForm")).get("fname"),
                                 json.loads(session.get("signUpForm")).get("lname"),
-                                json.loads(session.get("signUpForm")).get("user_password"),
+                                json.loads(mail.get_hash(session.get("signUpForm")).get("user_password")),
                                 ", ".split(request.form.get("languages")),
                                 ip)
                 rollno = json.loads(session.get("signUpForm")).get("rollno")
-                passwd = json.loads(session.get("signUpForm")).get("user_password")
+                passwd = json.loads(mail.get_hash(session.get("signUpForm")).get("user_password"))
                 session.clear()
                 session["login"] = json.dumps({"login":True,
                                            "name":(people.authUser(rollno,passwd).get("user").get("First Name")+" "+people.authUser(rollno,passwd).get("user").get("Last Name")),
@@ -91,9 +91,9 @@ def forgot_pass():
                     ip=dict(request.headers)['X-Forwarded-For']
                 except:
                     ip=dict(request.headers).get('X-Real-Ip')
-                people.chgPwd(session.get("rollno"), request.form.get("pwd"))
+                people.chgPwd(session.get("rollno"), mail.get_hash(request.form.get("pwd")))
                 rollno = session.get("rollno")
-                passwd = request.form.get("pwd")
+                passwd = mail.get_hash(request.form.get("pwd"))
                 session.clear()
                 session["login"] = json.dumps({"login":True,
                                            "name":(people.authUser(rollno,passwd).get("user").get("First Name")+" "+people.authUser(rollno,passwd).get("user").get("Last Name")),
