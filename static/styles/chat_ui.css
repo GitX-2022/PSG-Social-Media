@@ -3,6 +3,15 @@ body{
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(39,36,69,1) 54%, rgba(93,84,164,1) 100%);
 }
 
+.iamtherealbody{
+    
+    background-image: url("grad_bg.jpg");
+    background-size:cover!important;
+    background-position: center center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: scroll!important;
+}
+
 .name_title{
     background: black;
 }
@@ -26,4 +35,8 @@ body{
     position:absolute;
     bottom:5;
     right:0px;
+}
+
+.demo-car-square{
+    background-color: transparent!important;
 }
