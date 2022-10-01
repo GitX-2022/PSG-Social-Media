@@ -1,9 +1,18 @@
 <html>
     <head>
-        <link rel="stylesheet" href="chat_ui.css"/>
+        <link rel="stylesheet" href="{{url_for('static',filename='styles/chat_main.css')}}"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
         <meta name="viewport" content="width=device-width, initial=-scale=1">
+        <style type="text/css">
+            body{
+                background: rgb(0,0,0)!important;
+                background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(39,36,69,1) 54%, rgba(93,84,164,1) 100%)!important;
+                height: 100%;
+                width: 100%;
+                margin: 0!important; background-repeat: no-repeat!important; background-attachment: fixed!important;
+            }
+        </style>
     </head>
     <body>
     <div class="iamtherealbody">
@@ -20,55 +29,22 @@
         </div>
         <br>
         
-        <h6 style="position:relative; top: 20px; padding:10px; color: white;">Change Name</h6>
-        <!-- Simple Textfield -->
-        <form action="#" style="padding:10px;">
-            <div class="mdl-textfield mdl-js-textfield" id = "textbox">
-            <input class="mdl-textfield__input" type="text" id="sample1" style="color: white;">
-            <label class="mdl-textfield__label" for="sample1" style="color: rgb(176, 176, 176);font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 15px">Enter name</label>
-            </div>
-            <!-- Flat button -->
-            <button class="mdl-button mdl-js-button" style="color:white; border-radius: 25px;">
-                Submit
-            </button>
-        </form>  
+        {% if admin=="True" %}
+        <button onclick="window.location = '{{url_for('forgot_pass')}}?rollno={{me}}'" class="mdl-button mdl-js-button" style="color:white; border-radius: 25px;">
+            Add Event
+        </button>
         <hr>
-        
-        <h6 style="position:relative; top: 20px; padding:10px; color: white;">Change coding languages</h6>
-        <!-- Simple Textfield -->
-        <form action="#" style="padding:10px;">
-            <div class="mdl-textfield mdl-js-textfield" id = "textbox">
-            <input class="mdl-textfield__input" type="text" id="sample1" style="color: white;">
-            <label class="mdl-textfield__label" for="sample1" style="color: rgb(176, 176, 176);font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 15px">Enter language seperated by commas</label>
-            </div>
-            <!-- Flat button -->
-            <button class="mdl-button mdl-js-button" style="color:white; border-radius: 25px;">
-                Submit
-            </button>
-        </form>  
+        <button onclick="window.location = '{{url_for('forgot_pass')}}?rollno={{me}}'" class="mdl-button mdl-js-button" style="color:white; border-radius: 25px;">
+            Book A Room
+        </button>
         <hr>
-
-        <h6 style="position:relative; top: 20px; padding:10px; color: white;">Change Dept.</h6>
-        <!-- Simple Textfield -->
-        <form action="#" style="padding:10px;">
-            <div class="mdl-textfield mdl-js-textfield" id = "textbox">
-            <input class="mdl-textfield__input" type="text" id="sample1" style="color: white;">
-            <label class="mdl-textfield__label" for="sample1" style="color: rgb(176, 176, 176);font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 15px">Enter new dept.</label>
-            </div>
-            <!-- Flat button -->
-            <button class="mdl-button mdl-js-button" style="color:white; border-radius: 25px;">
-                Submit
-            </button>
-        </form>  
-        <hr>
-
-        <h6 style="position:relative; top: px; padding:15px; color: white;">Change password</h6>
-        <button class="mdl-button mdl-js-button" style="color:white; border-radius: 25px;">
+        {% endif %}
+        <button onclick="window.location = '{{url_for('forgot_pass')}}?rollno={{me}}'" class="mdl-button mdl-js-button" style="color:white; border-radius: 25px;">
             Change password
         </button>
         <hr>
 
-        <button class="mdl-button mdl-js-button" style="color:white; border-radius: 25px;">
+        <button onclick="window.location = '{{url_for('logout')}}'" class="mdl-button mdl-js-button" style="color:white; border-radius: 25px;">
             Sign Out
         </button>
     </div>

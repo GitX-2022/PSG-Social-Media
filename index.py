@@ -69,7 +69,6 @@ def signup_page():
 @app.route('/forgot-password', methods=['POST','GET'])
 def forgot_pass():
     if request.method=='GET':
-        print(dict(request.args))
         session["OTP"] = str(uuid.uuid4()).split("-")[0].upper()
         mail.send(str(dict(request.args).get("rollno")+"@psgtech.ac.in"),"Your OTP for Eventique",session.get("OTP"))
         session["rollno"] = (str(dict(request.args).get("rollno")))
@@ -158,7 +157,9 @@ def chats():
 @app.route('/profile-settings')
 def settings():
     if request.method=='GET':
-        return render_template("profile_settings.html")
+        return render_template("profile_settings.html",
+                                me = json.loads(session.get("login"))["roll"],
+                                admin = json.loads(session.get("login")).get("details").get("admin"))
 
 @app.route('/chats/<roll>')
 def chat_roll(roll):
