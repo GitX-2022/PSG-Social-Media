@@ -31,10 +31,10 @@ Eventique is a club events management tool for the college and provides a handfu
 - NGINX Server
 
 ## Documentation
-<a href="https://getmdl.io/started/index.html">Material Design Lite</a>
-<a href="https://flask.palletsprojects.com/en/2.2.x/">Python3-Flask</a>
-<a href="https://gunicorn.org/#docs">GUnicorn</a>
-<a href="https://nginx.org/en/docs/">NGINX</a>
+- <a href="https://getmdl.io/started/index.html">Material Design Lite</a>
+- <a href="https://flask.palletsprojects.com/en/2.2.x/">Python3-Flask</a>
+- <a href="https://gunicorn.org/#docs">GUnicorn</a>
+- <a href="https://nginx.org/en/docs/">NGINX</a>
 
 ## Authors
 - <a href="https://github.com/aadityarengarajan">@aadityarengarajan | Aaditya Rengarajan</a>
