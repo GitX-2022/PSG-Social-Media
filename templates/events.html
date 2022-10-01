@@ -111,7 +111,7 @@
 			<div class="mdl-layout__drawer">
 				<br/> <span class="mdl-layout-title">Eventique</span>
 				<!-- LIST OF PAGES AVAILABLE -->
-				<nav class="mdl-navigation"> <a class="mdl-navigation__link" href="{{url_for('dashboard')}}">Dashboard</a> <a class="mdl-navigation__link">Events</a> <a class="mdl-navigation__link" href="{{url_for('my_profile')}}">My Profile</a> <a class="mdl-navigation__link" href="">Roooms</a> <a class="mdl-navigation__link" href="">Settings</a> </nav>
+				<nav class="mdl-navigation"> <a class="mdl-navigation__link" href="{{url_for('dashboard')}}">Dashboard</a> <a class="mdl-navigation__link">Events</a> <a class="mdl-navigation__link" href="{{url_for('my_profile')}}">My Profile</a> <a class="mdl-navigation__link" href="{{url_for('rooms')}}">Rooms</a> <a class="mdl-navigation__link" href="{{url_for('settings')}}">Settings</a> </nav>
 			</div>
 			<main class="mdl-layout__content" style="padding:15px">
 				<!-- DISPLAYING ALL AVAILABLE EVENTS -->
@@ -119,12 +119,18 @@
 				{% for i in events %}
 				<div class="mdl-card mdl-shadow--2dp" style="min-height: 20%!important">
 				<div class="mdl-card__title">
-					<h2 class="mdl-card__title-text">{{i["title"]}}</h2> </div>
-				<div class="mdl-card__supporting-text"> {{i["desc"]}} </div>
+					<h2 class="mdl-card__title-text">{{i["Event Name"]}}</h2> </div>
+				<div class="mdl-card__supporting-text"> Start : {{i["Start Date"]}} <br/> {{i["Description"]}} <br/> Open to : Semesters {{i["Semesters Open To"]}} and Departments {{", ".join(i["Departments Open To"])}} <br/> Organized By : {{i["Organizer's Name"]}} <br/> End : {{i["End Date"]}}</div>
+				{% if me not in i["Attendees"] %}
 				<div class="mdl-card__menu">
 					<!-- ENROLL BUTTON FOR REGISTRATION -->
-					<button class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect certificate"> Enroll </button>
+					<a href="{{url_for('events')}}?enroll={{i['Event Code']}}" class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect certificate"> Enroll </a>
 				</div>
+				{% else %}
+				<div class="mdl-card__menu">
+					<p style="border-width: 1px;border-style: solid;padding:5px">ENROLLED</p>
+				</div>
+				{% endif %}
 				</div>
 			<br> 
 		    {% endfor %} 

@@ -115,19 +115,11 @@ def my_profile():
 
 @app.route('/events')
 def events():
+    if request.args.get("enroll"):
+        eventseditor.attendEvent(json.loads(session.get("login"))["roll"], request.args.get("enroll"))
     return render_template("events.html",
-                            events = [
-                                        {
-                                            "logo" : "",
-                                            "title": "GitX",
-                                            "desc" : "GitHub Campus Club Hackathon"
-                                        },
-                                        {
-                                            "logo" : "",
-                                            "title": "What's Hackening?",
-                                            "desc" : "Ethical Hacking Hackathon"
-                                        }
-                                     ])
+                            events = eventseditor.read(),
+                            me = json.loads(session.get("login"))["roll"])
 
 @app.route('/rooms')
 def rooms():
