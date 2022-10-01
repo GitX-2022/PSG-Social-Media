@@ -182,6 +182,10 @@ def chat_roll(roll):
 def delete_chat(id):
     pass
 
+@app.route('/profile-settings')
+def settings():
+    pass
+
 @app.route('/logout')
 def logout():
     session.clear()
