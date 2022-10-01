@@ -9,52 +9,148 @@
 	- Sanjay Kumaar Easwaran
 	-->
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>[EVENTIQUE] Log In</title>
-	<link rel="stylesheet" href="../static/styles/authpage.css"/>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"/>
-	<style type="text/css">
-		html, body{
-			width: 100%!important;
-			height: 100%!important;
-		}
-	</style>
-</head>
-<body>
+	<head>
+		<!-- TITLE -->
+		<title>[EVENTIQUE] Log In</title>
+		<!-- LINKING CSS FILES -->
+		<link rel="stylesheet" href="{{url_for('static', filename='styles/authpage.css')}}"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"/>
+		
+		<!-- META FILES TO IMPROVE SEO AND COMPATIBILITY -->
+		<meta charset="UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="cleartype" content="on" />
+		<meta name="MobileOptimized" content="width" />
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta property="og:site_name" content="Eventique">
+		<meta itemprop="name" content="Eventique" />
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="shortcut icon" type="image/x-icon">
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="16x16" type="image/jpeg">
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="32x32" type="image/jpeg">
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="48x48" type="image/jpeg">
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="96x96" type="image/jpeg">
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="256x256" type="image/jpeg">
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="apple-touch-icon" sizes="180x180">
+		<link href="https://i.imgur.com/Y1sqSEG.png" rel="mask-icon" type="image/jpeg">
+		<meta name="description" content="Eventique is an An developed for our college students to stay updated regarding events.">
+		<meta property="og:title" content="Eventique">
+		<meta property="og:image" content="https://i.imgur.com/Y1sqSEG.png">
+		<meta property="og:url" content="https://eventique.intellx.in">
+		<meta property="og:description" content="Eventique is an application developed for our college students to stay updated regarding events.">
+		<meta name="twitter:url" content="https://eventique.intellx.in">
+		<meta name="twitter:title" content="Eventique">
+		<meta name="twitter:description" content="Eventique is an application developed for our college students to stay updated regarding events.">
+		<meta name="twitter:image" content="https://i.imgur.com/Y1sqSEG.png">
+		<meta name="twitter:app:name:iphone" content="Eventique">
+		<meta name="twitter:app:id:iphone" content="id292738169">
+		<meta name="twitter:app:url:iphone" content="https://eventique.intellx.in">
+		<meta property="al:ios:app_name" content="Eventique">
+		<meta property="al:ios:app_store_id" content="292738169">
+		<meta property="al:ios:url" content="https://eventique.intellx.in">
+		<meta name="twitter:app:name:ipad" content="Eventique">
+		<meta name="twitter:app:id:ipad" content="id292738169">
+		<meta name="twitter:app:url:ipad" content="https://eventique.intellx.in">
+		<meta name="twitter:app:name:googleplay" content="Eventique">
+		<meta name="twitter:app:url:googleplay" content="https://eventique.intellx.in">
+		<meta property="al:android:app_name" content="Eventique">
+		<meta property="al:android:url" content="https://eventique.intellx.in">
+		<link rel="canonical" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="en" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="fr" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="de" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="es-ES" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="it" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="nl" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="pt" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="ru" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="ko" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="pt-BR" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="id" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="pl" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="tr" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="ro" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="ms" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="hu" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="sr" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="th" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="zh" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="ar" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="hr" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="es" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="cs" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="sk" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="sv" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="en-US" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="ja-JP" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="bg" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="da" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="no" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="fi" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="sq" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="sl" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="uk" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="he" href="https://eventique.intellx.in">
+		<link rel="alternate" hreflang="x-default" href="https://eventique.intellx.in">
+		
+		<style type="text/css">
+			html, body{
+				width: 100%!important;
+				height: 100%!important;
+			}
+		</style>
+	</head>
+	<body>
 		<div class="screen">
 			<div class="screen__content">
+				<!-- LOGIN PAGE -->
 				<form class="login" method="POST" action="{{url_for('login_page')}}" id="login-form">
 					<div class="login__field">
+						<!-- IN CASE THE CREDENTIALS ARE WORNG THE JINJA IF WILL BE TRGGERED -->
 						{% if incorrect=="true" %}
-					<p style="font-weight: bold;color:red">incorrect details, try again.</p><br/>
-					{% endif %}
+							<p style="font-weight: bold;color:red">
+								incorrect details, try again.
+							</p>
+							<br/>
+						{% endif %}
+						<!-- GETTING THE ROLL NO.-->
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					      <input class="mdl-textfield__input" name="rollno" type="text" id="sample3">
-					      <label class="mdl-textfield__label" for="sample3">Roll Number</label>
-				    	</div>
+							<input class="mdl-textfield__input" name="rollno" type="text" id="sample3">
+							<label class="mdl-textfield__label" for="sample3">Roll Number</label>
+						</div>
 					</div>
 					<div class="login__field">
+						<!-- GETTING THE PASSWORD -->
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					      <input class="mdl-textfield__input" name="password" type="password" id="sample3">
-					      <label class="mdl-textfield__label" for="sample3">Password</label>
-				    	</div>
+							<input class="mdl-textfield__input" name="password" type="password" id="sample3">
+							<label class="mdl-textfield__label" for="sample3">Password</label>
+						</div>
 					</div>
+					<!-- LOGIN BUTTON -->
 					<button class="button login__submit">
-						<span class="button__text">Log In</span>
+						<span class="button__text">
+							Log In
+						</span>
 						<i class="button__icon fas fa-chevron-right"></i>
 					</button>				
-				
-				<div class="social-login">
-					<a href="javascript:document.getElementById('login-form').action='{{url_for('forgot_pass')}}';document.getElementById('login-form').method='GET';document.getElementById('login-form').submit();" href="{{url_for('forgot_pass')}}" style="text-decoration
-					:none;color: inherit;"><p>forgot password?</p></button><br/>
-					<a href="{{url_for('signup_page')}}" style="text-decoration
-					:none;color: inherit;"><p>sign up.</p></a>
-				</div>
+					
+					<!-- IN CASE THE USER FORGETS PASSWORD -->
+					<div class="social-login">
+						<a href="javascript:document.getElementById('login-form').action='{{url_for('forgot_pass')}}';document.getElementById('login-form').method='GET';document.getElementById('login-form').submit();" href="{{url_for('forgot_pass')}}" style="text-decoration
+						:none;color: inherit;">
+							<p>forgot password?</p>
+						</a>
+						<br/>
+						<!-- USER SIGN UP OPTOION -->
+						<a href="{{url_for('signup_page')}}" style="text-decoration
+						:none;color: inherit;">
+							<p>sign up.</p>
+						</a>
+					</div>
 				</form>
 			</div>
+			<!-- SHAPES FOR BACKGROUND AETHETICS -->
 			<div class="screen__background">
 				<span class="screen__background__shape screen__background__shape4"></span>
 				<span class="screen__background__shape screen__background__shape3"></span>		
@@ -62,6 +158,7 @@
 				<span class="screen__background__shape screen__background__shape1"></span>
 			</div>		
 		</div>
-	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-</body>
+		<!-- MATERIAL DESIGN ELEMENTS -->
+		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	</body>
 </html>
