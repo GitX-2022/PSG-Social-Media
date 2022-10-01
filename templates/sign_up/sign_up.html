@@ -1,104 +1,320 @@
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Form</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='styles/sign_up.css')}}">
-    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-</head>
-<body>
-
-  <form action="{{url_for('signup_page')}}" method="POST">
-  
-    <h1>Sign Up</h1>
+<html>
+    <head>
+        <!-- TITLE -->
+        <title>Sign Up Form</title>
+        <!--LINKING CSS FILE -->
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/sign_up.css')}}">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <!--META ELEMENTS TO IMPROVE SEO AND COMPATIBILITY -->
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="cleartype" content="on" />
+        <meta name="MobileOptimized" content="width" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:site_name" content="Eventique">
+        <meta itemprop="name" content="Eventique" />
+        <link href="https://i.imgur.com/Y1sqSEG.png" rel="shortcut icon" type="image/x-icon">
+        <link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="16x16" type="image/jpeg">
+        <link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="32x32" type="image/jpeg">
+        <link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="48x48" type="image/jpeg">
+        <link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="96x96" type="image/jpeg">
+        <link href="https://i.imgur.com/Y1sqSEG.png" rel="icon" sizes="256x256" type="image/jpeg">
+        <link href="https://i.imgur.com/Y1sqSEG.png" rel="apple-touch-icon" sizes="180x180">
+        <link href="https://i.imgur.com/Y1sqSEG.png" rel="mask-icon" type="image/jpeg">
+        <meta name="description" content="Eventique is an An developed for our college students to stay updated regarding events.">
+        <meta property="og:title" content="Eventique">
+        <meta property="og:image" content="https://i.imgur.com/Y1sqSEG.png">
+        <meta property="og:url" content="https://eventique.intellx.in">
+        <meta property="og:description" content="Eventique is an application developed for our college students to stay updated regarding events.">
+        <meta name="twitter:url" content="https://eventique.intellx.in">
+        <meta name="twitter:title" content="Eventique">
+        <meta name="twitter:description" content="Eventique is an application developed for our college students to stay updated regarding events.">
+        <meta name="twitter:image" content="https://i.imgur.com/Y1sqSEG.png">
+        <meta name="twitter:app:name:iphone" content="Eventique">
+        <meta name="twitter:app:id:iphone" content="id292738169">
+        <meta name="twitter:app:url:iphone" content="https://eventique.intellx.in">
+        <meta property="al:ios:app_name" content="Eventique">
+        <meta property="al:ios:app_store_id" content="292738169">
+        <meta property="al:ios:url" content="https://eventique.intellx.in">
+        <meta name="twitter:app:name:ipad" content="Eventique">
+        <meta name="twitter:app:id:ipad" content="id292738169">
+        <meta name="twitter:app:url:ipad" content="https://eventique.intellx.in">
+        <meta name="twitter:app:name:googleplay" content="Eventique">
+        <meta name="twitter:app:url:googleplay" content="https://eventique.intellx.in">
+        <meta property="al:android:app_name" content="Eventique">
+        <meta property="al:android:url" content="https://eventique.intellx.in">
+        <link rel="canonical" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="en" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="fr" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="de" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="es-ES" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="it" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="nl" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="pt" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="ru" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="ko" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="pt-BR" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="id" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="pl" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="tr" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="ro" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="ms" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="hu" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="sr" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="th" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="zh" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="ar" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="hr" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="es" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="cs" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="sk" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="sv" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="en-US" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="ja-JP" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="bg" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="da" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="no" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="fi" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="sq" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="sl" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="uk" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="he" href="https://eventique.intellx.in">
+        <link rel="alternate" hreflang="x-default" href="https://eventique.intellx.in">
+    </head>
     
-    <fieldset>
-      <legend>Your basic info</legend>
-      <label for="first_name">First Name:</label>
-      <input type="text" id="name" name="fname">
-      <label for="last_name">Last Name:</label>
-      <input type="text" id="name" name="lname">
-      <label for="roll">Roll No.:</label>
-      <input type="text" id="roll" name="rollno">
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="user_password">
-      <label for="langs"> List Languages You Know (separated by commas):</label>
-      <input type="text" id="langs" name="languages"> 
-    </fieldset>
+    <body>
+        <!-- ASKING DETAILS FOR THE NEWLY REGISTERED USER -->
+        <form action="{{url_for('signup_page')}}" method="POST">
 
-    <fieldset>
-    <label for="job">Department</label>
-    <select id="job" name="user_job">
-      <optgroup label="Bachelor Of Engineering">
-        <option>Automobile Engineering</option>
-        <option>Biomedical Engineering</option>
-        <option>Civil Engineering</option>
-        <option> Computer Science and Engineering</option>
-        <option>Electrical and Electronics Engineering</option>
-        <option>Electronics and Communication Engineering</option>
-        <option>Instrumentation and Control Engineering</option>
-        <option>Mechanical Engineering</option> 
-        <option>Metallurgical Engineering</option>
-        <option>Production Engineering</option>
-        <option>Robotics and Automation</option> 
-        <option>Bio Technology</option>
-        <option>Fashion Technology</option>
-        <option>Information Technology</option> <option>Textile Engineering</option>
-        <option>Electrical and Electronics Engineering (Sandwich)</option> 
-        <option>Mechanical Engineering (Sandwich)</option>
-        <option>Production Engineering (Sandwich)</option>
-        <option>Textile Technology (Part Time)</option>
-      </optgroup>
-      <optgroup label="Bachelor of Science Programmes">
-        <option>Applied Science</option>
-        <option>Computer Systems and Design</option>
-      </optgroup>
-      <optgroup label="Master of Engineering / Technology Programmes">
-        <option>Applied Electronics</option>
-        <option>Automotive Engineering</option>
-        <option>Biometerics and Cyber Security</option>
-        <option>Communication Systems</option>
-        <option>Computer Integrated Manufacturing</option>
-        <option>Computer Science and Engineering</option>
-        <option>Control Systems</option>
-        <option>Embedded & Real-Time Systems</option>
-        <option>Energy Engineering</option>
-        <option>Engineering Design</option> 
-        <option>Industrial Engineering</option>
-        <option>Industrial Metallurgy</option>
-        <option>Infrastructure Engineering</option> 
-        <option>Manufacturing Technology</option>
-        <option>Power Electronics and Drives</option>
-        <option>Structural Technology</option>
-        <option>Virtual Prototyping and Digital Manufacturing</option>
-        <option>VLSI Design</option> 
-        <option>Wireless Communication</option>
-        <option>Bio Technology</option>
-        <option>Information Technology</option>
-        <option>Wireless Communication</option>
-        <option>Nano Science and Technology</option>
-        <option>Textile Technology</option>
-      </optgroup>
-      <optgroup label="Post Graduate Programmes in Science">
-        <option>Data Science [5 Years Integrated]</option>
-        <option>Applied Mathematics</option>
-        <option>D	MSc Cyber Security [5 Years Integrated]</option>
-        <option>A	Fashion Design & Merchandising [5 Years Integrated]</option>
-        <option>Software Systems [5 Years Integrated]</option>
-        <option>Theoretical Computer Science [5 Years Integrated]</option>
-      </optgroup>
-      <optgroup label="Post Graduate Programme in Computer Application">
-        <option>Master of Computer Applications</option>
-      </optgroup>
-      </optgroup>
-      <optgroup label="Post Graduate Programmes in Management">
-        <option>MBA</option>
-        <option>MBA (Waste Management & Social Entrepreneurship)</option>
-      </optgroup>
-    </select>
-    </fieldset>
+            <h1>Sign Up</h1>
 
-    <button type="submit">Sign Up</button>
+            <fieldset>
+                <legend>
+                  Your basic info
+                </legend>
 
-  </form>
-</body>
+                <!-- ASKING USER'S FIRST NAME -->
+                <label for="first_name">
+                  First Name:
+                </label>
+                <input type="text" id="name" name="fname">
+
+                <!-- ASKING USER FOR THE LAST NAME -->
+                <label for="last_name">
+                    Last Name:
+                </label>
+                <input type="text" id="name" name="lname">
+
+                <!--ASKING USER FOR THEIR ROLL NO. -->
+                <label for="roll">
+                    Roll No.:
+                </label>
+                <input type="text" id="roll" name="rollno">
+
+                <!-- ASKING USER TO ENTER PASSWORD -->
+                <label for="password">
+                    Password:
+                </label>
+                <input type="password" id="password" name="user_password">
+
+                <!-- ASKING THE USER TO ENTER KNOWN PROGRAMMING LANGUAGES -->
+                <label for="langs">
+                    List Languages You Know (separated by commas):
+                </label>
+                <input type="text" id="langs" name="languages"> 
+            </fieldset>
+
+            <fieldset>
+                <!-- ASKING FOR THE DEPARTMENT -->
+                <label for="job">
+                    Department
+                </label>
+                <!-- LISTING OUT DIFFERENT AVAILABLE PROGRAMMES IN A DROP-DOWN MENU -->
+                <select id="job" name="user_job">
+                    <optgroup label="Bachelor Of Engineering">
+                        <option>
+                            Automobile Engineering
+                        </option>
+                        <option>
+                            Biomedical Engineering
+                        </option>
+                        <option>
+                            Civil Engineering
+                        </option>
+                        <option>
+                            Computer Science and Engineering
+                        </option>
+                        <option>
+                            Electrical and Electronics Engineering
+                        </option>
+                        <option>
+                            Electronics and Communication Engineering
+                        </option>
+                        <option>
+                            Instrumentation and Control Engineering
+                        </option>
+                        <option>
+                            Mechanical Engineering
+                        </option> 
+                        <option>
+                            Metallurgical Engineering
+                        </option>
+                        <option>
+                            Production Engineering
+                        </option>
+                        <option>
+                            Robotics and Automation
+                        </option> 
+                        <option>
+                            Bio Technology
+                        </option>
+                        <option>
+                            Fashion Technology
+                        </option>
+                        <option>
+                            Information Technology
+                        </option> 
+                        <option>
+                            Textile Engineering
+                        </option>
+                        <option>
+                            Electrical and Electronics Engineering (Sandwich)
+                        </option> 
+                        <option>
+                            Mechanical Engineering (Sandwich)
+                        </option>
+                        <option>
+                            Production Engineering (Sandwich)
+                        </option>
+                        <option>
+                            Textile Technology (Part Time)
+                        </option>
+                    </optgroup>
+
+                    <optgroup label="Bachelor of Science Programmes">
+                        <option>
+                            Applied Science
+                        </option>
+                        <option>
+                            Computer Systems and Design
+                        </option>
+                    </optgroup>
+
+                    <optgroup label="Master of Engineering / Technology Programmes">
+                        <option>
+                            Applied Electronics
+                        </option>
+                        <option>
+                            Automotive Engineering
+                        </option>
+                        <option>
+                            Biometerics and Cyber Security
+                        </option>
+                        <option>
+                            Communication Systems
+                        </option>
+                        <option>
+                            Computer Integrated Manufacturing
+                        </option>
+                        <option>
+                            Computer Science and Engineering
+                        </option>
+                        <option>
+                            Control Systems
+                        </option>
+                        <option>
+                            Embedded & Real-Time Systems
+                        </option>
+                        <option>
+                            Energy Engineering
+                        </option>
+                        <option>
+                            Engineering Design
+                        </option> 
+                        <option>
+                            Industrial Engineering
+                        </option>
+                        <option>
+                            Industrial Metallurgy
+                        </option>
+                        <option>
+                            Infrastructure Engineering
+                        </option> 
+                        <option>
+                            Manufacturing Technology
+                        </option>
+                        <option>
+                            Power Electronics and Drives
+                        </option>
+                        <option>
+                            Structural Technology
+                        </option>
+                        <option>
+                            Virtual Prototyping and Digital Manufacturing
+                        </option>
+                        <option>
+                            VLSI Design
+                        </option> 
+                        <option>
+                            Wireless Communication
+                        </option>
+                        <option>
+                            Bio Technology
+                        </option>
+                        <option>
+                            Information Technology
+                        </option>
+                        <option>
+                            Wireless Communication
+                        </option>
+                        <option>
+                            Nano Science and Technology
+                        </option>
+                        <option>
+                            Textile Technology
+                        </option>
+                    </optgroup>
+                    <optgroup label="Post Graduate Programmes in Science">
+                        <option>
+                            Data Science [5 Years Integrated]
+                        </option>
+                        <option>
+                            Applied Mathematics
+                        </option>
+                        <option>
+                            D	MSc Cyber Security [5 Years Integrated]
+                        </option>
+                        <option>
+                            A	Fashion Design & Merchandising [5 Years Integrated]
+                        </option>
+                        <option>
+                            Software Systems [5 Years Integrated]
+                        </option>
+                        <option>
+                            Theoretical Computer Science [5 Years Integrated]
+                        </option>
+                    </optgroup>
+                    <optgroup label="Post Graduate Programme in Computer Application">
+                        <option>
+                            Master of Computer Applications
+                        </option>
+                    </optgroup>
+                    <optgroup label="Post Graduate Programmes in Management">
+                        <option>
+                            MBA
+                        </option>
+                        <option>
+                            MBA (Waste Management & Social Entrepreneurship)
+                        </option>
+                    </optgroup>
+                </select>
+            </fieldset>
+            
+            <!-- SUBMIT BUTTON -->
+            <button type="submit">
+                Sign Up
+            </button>
+        </form>
+    </body>
 </html>
