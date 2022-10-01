@@ -105,6 +105,8 @@ def forgot_pass():
 
 @app.route('/dashboard')
 def dashboard():
+    if session.get("login") == None:
+        return redirect(url_for("login_page"))
     return render_template("dashboard.htm",
                             name = json.loads(session.get("login"))["name"],
                             events=eventseditor.userEvents(json.loads(session.get("login"))["roll"]))
@@ -112,6 +114,8 @@ def dashboard():
 
 @app.route('/my-profile')
 def my_profile():
+    if session.get("login") == None:
+        return redirect(url_for("login_page"))
     print(json.loads(session.get("login"))["details"])
     return render_template("profile.html",
                             person=json.loads(session.get("login"))["details"],
@@ -121,6 +125,8 @@ def my_profile():
 
 @app.route('/events')
 def events():
+    if session.get("login") == None:
+        return redirect(url_for("login_page"))
     if request.args.get("enroll"):
         eventseditor.attendEvent(json.loads(session.get("login"))["roll"], request.args.get("enroll"))
     return render_template("events.html",
@@ -129,6 +135,8 @@ def events():
 
 @app.route('/ticket/<event>', methods=['POST','GET'])
 def ticket(event):
+    if session.get("login") == None:
+        return redirect(url_for("login_page"))
     ticktgen.tgen(eventseditor.getEvent(event)["Organizer's Name"],
                   json.loads(session.get("login"))["roll"],
                   eventseditor.getEvent(event)["Start Date"],
@@ -138,12 +146,16 @@ def ticket(event):
 
 @app.route('/rooms')
 def rooms():
+    if session.get("login") == None:
+        return redirect(url_for("login_page"))
     return render_template("admin/view_room.htm",
                             rooms = roomseditor.viewbookings(),
                             me = json.loads(session.get("login"))["roll"])
 
 @app.route('/rooms/delete/<code>@<dt>')
 def delete_booking(code,dt):
+    if session.get("login") == None:
+        return redirect(url_for("login_page"))
     with open(f"data/rooms.json") as f:
         rooms = json.load(f)
     return render_template("admin/view_room.htm",
@@ -151,6 +163,8 @@ def delete_booking(code,dt):
 
 @app.route('/rooms/update/<code>@<dt>')
 def update_booking(code,dt):
+    if session.get("login") == None:
+        return redirect(url_for("login_page"))
     with open(f"data/rooms.json") as f:
         rooms = json.load(f)
     return render_template("admin/view_room.htm",
@@ -158,12 +172,16 @@ def update_booking(code,dt):
 
 @app.route('/profile-settings')
 def settings():
+    if session.get("login") == None:
+        return redirect(url_for("login_page"))
     return render_template("profile_settings.html",
                             me = json.loads(session.get("login"))["roll"],
                             admin = json.loads(session.get("login")).get("details").get("admin"))
 
 @app.route('/book-room', methods=['POST','GET'])
 def book_room():
+    if session.get("login") == None:
+        return redirect(url_for("login_page"))
     if request.method=='GET':
         return render_template("admin/book_room.htm")
     if request.method=='POST':
@@ -176,6 +194,8 @@ def book_room():
 
 @app.route('/add-event', methods=['POST', 'GET'])
 def add_event():
+    if session.get("login") == None:
+        return redirect(url_for("login_page"))
     if request.method=='GET':
         return render_template("admin/update_event.htm")
     if request.method=='POST':
@@ -190,6 +210,8 @@ def add_event():
 
 @app.route('/chats')
 def chats():
+    if session.get("login") == None:
+        return redirect(url_for("login_page"))
     with open(f"data/chats.json") as f:
         chats = json.load(f)
     user_chats = []
@@ -208,6 +230,8 @@ def chats():
 
 @app.route('/chats/<roll>')
 def chat_roll(roll):
+    if session.get("login") == None:
+        return redirect(url_for("login_page"))
     with open(f"data/chats.json") as f:
         chats = json.load(f)
     my_chats = []
@@ -220,6 +244,8 @@ def chat_roll(roll):
 
 @app.route('/chats/send/<id>', methods=['POST', 'GET'])
 def send_chat(id):
+    if session.get("login") == None:
+        return redirect(url_for("login_page"))
     to = id
     message = request.form.get("message")
     fro = json.loads(session.get("login"))["roll"]
@@ -228,11 +254,15 @@ def send_chat(id):
 
 @app.route('/chats/unsend/<id>', methods=['POST', 'GET'])
 def delete_chat(id):
+    if session.get("login") == None:
+        return redirect(url_for("login_page"))
     editor.delete(id)
     return redirect(url_for("chat_roll", roll=request.args.get("callback")))
 
 @app.route('/generate-certificate', methods=['POST','GET'])
 def gen_cert():
+    if session.get("login") == None:
+        return redirect(url_for("login_page"))
     if request.method=='GET':
         return render_template("admin/gen_cert.htm")
     if request.method=='POST':
@@ -248,6 +278,42 @@ def gen_cert():
 def logout():
     session.clear()
     return redirect(url_for("rerouter"))
+
+
+''' API to
+    - Retrieve booked rooms
+    - Retrieve my events (Requires Log-In)
+    - Retrieve event ticket given event ID'''
+
+@app.route('/api/rooms')
+def rooms_api():
+    return jsonify(roomseditor.viewbookings())
+
+@app.route('/api/login', methods=['POST','GET'])
+def api_login():
+    rollno = request.form.get("rollno")
+    passwd = request.form.get("password")
+    if people.authUser(rollno,passwd).get("auth")==True:
+        session["login"] = json.dumps({"login":True,
+                                    "name":(people.authUser(rollno,passwd).get("user").get("First Name")+" "+people.authUser(rollno,passwd).get("user").get("Last Name")),
+                                    "roll":people.authUser(rollno,passwd).get("user").get("Roll No."),
+                                    "details":people.authUser(rollno,passwd).get("user")})
+        return jsonify({"message":"login successful"})
+    else:
+        return jsonify({"message":"incorrect login"})
+
+@app.route('/api/events')
+def events_api():
+    return jsonify(eventseditor.userEvents(json.loads(session.get("login"))["roll"]))
+
+@app.route('/api/ticket/<event>', methods=['POST','GET'])
+def api_ticket(event):
+    ticktgen.tgen(eventseditor.getEvent(event)["Organizer's Name"],
+                  json.loads(session.get("login"))["roll"],
+                  eventseditor.getEvent(event)["Start Date"],
+                  eventseditor.getEvent(event)["End Date"],
+                  eventseditor.getEvent(event)["Event Name"])
+    return send_file("tickettt.png")
 
 if __name__ == '__main__':
     app.run(debug=True,
