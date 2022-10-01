@@ -2,12 +2,12 @@
 
 Eventique is a club events management tool for the college and provides a handful of features.
 
-## Admin Tools
+### Admin Tools
 - Add Events
 - Generate Certificates for Events
 - Book Rooms for Events
 
-## User Interface
+### User Interface
 - View Profile
 - View Upcoming Events and have alerts for the same
 - View Event Ticket (Gimmick for Event Promotion)
@@ -15,14 +15,14 @@ Eventique is a club events management tool for the college and provides a handfu
 - View Booked Rooms at the College
 - Locker for Issued Certificates
 
-## Common Features
+### Common Features
 - Use Server-Based Instant Messaging to interact with one another
 - Edit Profile Settings
 - Log In//Sign Up
 - E-Mail OTP Based Sign Up Verification
 - E-Mail OTP Based Forgot Password Feature
 
-# Tech Stack Used
+## Tech Stack Used
 - Python3-Flask
 - Vanilla HTML
 - Material Design Lite for Cascading Style Sheets
@@ -41,5 +41,5 @@ Eventique is a club events management tool for the college and provides a handfu
 - <a href="https://github.com/RWXogenisis">@RWXogenisis | S Karun Vikhash</a>
 - <a href="https://github.com/Sanjaykumaar0603">@Sanjaykumaar0603 | Sanjay Kumaar</a>
 - <a href="https://github.com/BoomBoy4U">@BoomBoy4U | Ajay Ramesh</a>
-
-### THIS REPOSITORY WAS MADE AS A PART OF PSG GITHUB CAMPUS CLUB'S GitX HACKATHON.
+<br/>
+THIS REPOSITORY WAS MADE AS A PART OF PSG GITHUB CAMPUS CLUB'S GitX HACKATHON.
