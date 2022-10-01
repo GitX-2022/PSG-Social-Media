@@ -1,23 +1,9 @@
 import json
 import datetime
 
-def send():
+def send(Title, Description, Url, Thumbnail, Languages, Vaccancies, Members, M_Name, M_Date, M_Description_1, Me_Name, Me_Roll):
     with open ("Hackathon/JSON/projects.json","r") as source:
         obj = json.load(source)
-
-    Title = str(input())
-    Description = str(input())
-    Url = str(input())
-    Thumbnail = str(input())
-    Languages = str(input())
-    Vaccancies = str(input())
-    Members = str(input())
-    M_Name = str(input())
-    M_Date = str(datetime.datetime.now())[:-7]
-    M_Description_1 = str(input())
-    Me_Name = str(input())
-    Me_Roll = str(input())
-
     
     data = {"Code": str(int(obj["Projects"][-1]["Code"])+1),"Title": Title, "Description": Description, "URL": Url, "Thumbnail": Thumbnail, "Languages (if Coding)": Languages, "Vaccinces": Vaccancies, "Members": [{"Name": Me_Name, "Roll_No.": Me_Roll}], "Milestones":[{"Name": M_Name, "Date": M_Date, "Description": M_Description_1}]}
     obj["Projects"].append(data)
