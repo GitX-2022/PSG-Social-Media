@@ -26,6 +26,16 @@ def read():
         obj = json.load(source)
     return obj["Events"]
 
+def getEvent(eventID:int):
+    with open("data/events.json", "r") as source:
+        obj = json.load(source)
+
+    for event in obj["Events"]:
+        if str(eventID) == str(event["Event Code"]):
+            return event
+
+    with open("data/events.json", "w") as dest:
+        json.dump({"Events":newEvents}, dest, indent=4)
 def userEvents(user:str):
     with open("data/events.json", "r") as source:
         obj = json.load(source)

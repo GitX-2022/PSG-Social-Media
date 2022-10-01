@@ -128,8 +128,9 @@
 				</div>
 				{% else %}
 				<div class="mdl-card__menu">
-					<p style="border-width: 1px;border-style: solid;padding:5px">ENROLLED</p>
+					<p style="border-width: 1px;border-style: solid;padding:5px">ENROLLED</p><br/>
 				</div>
+				<a href="{{url_for('ticket', event=i['Event Code'])}}" class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect certificate">View Ticket</a>
 				{% endif %}
 				</div>
 			<br> 

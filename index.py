@@ -8,7 +8,7 @@ import modules.people as people
 import modules.roombooking as roomseditor
 import modules.mailer_hasher as mail
 from modules.certgen import certgen
-from modules.certgen import ticketgen
+from modules.certgen import ticktgen
 
 app = Flask(__name__)
 app.secret_key = "KrrrzPPghtfgSKbtJEQCTA"
@@ -119,6 +119,15 @@ def events():
     return render_template("events.html",
                             events = eventseditor.read(),
                             me = json.loads(session.get("login"))["roll"])
+
+@app.route('/ticket/<event>', methods=['POST','GET'])
+def ticket(event):
+    ticktgen.tgen(eventseditor.getEvent(event)["Organizer's Name"],
+                  json.loads(session.get("login"))["roll"],
+                  eventseditor.getEvent(event)["Start Date"],
+                  eventseditor.getEvent(event)["End Date"],
+                  eventseditor.getEvent(event)["Event Name"])
+    return send_file("tickettt.png")
 
 @app.route('/rooms')
 def rooms():
