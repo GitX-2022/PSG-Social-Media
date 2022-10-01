@@ -19,11 +19,25 @@ def login_page():
         rollno = request.form.get("rollno")
         passwd = request.form.get("password")
         # VERIFY PASSWORD
+        session["login"] = json.dumps({"login":True,
+                                        "name":"Aaditya"}) # and login details
+        return redirect(url_for("dashboard"))
 
 @app.route('/dashboard')
 def dashboard():
-    return 'dashboard page'
+    return render_template("dashboard.htm",
+                            name = json.loads(session.get("login"))["name"],
+                            events=[
+                                    {
+                                        "event_name" : "GitX",
+                                        "event_details" : "Code Hawk Official"
+                                    }
+                                   ])
 
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for("rerouter"))
 
 if __name__ == '__main__':
     app.run(debug=True,
