@@ -1,0 +1,141 @@
+{
+    "People": [
+        {
+            "Roll_No.": " ",
+            "First Name": " ",
+            "Last Name": " ",
+            "Location": " ",
+            "Thumbnail": " ",
+            "About": " ",
+            "Education": [
+                {
+                    "School": [
+                        {
+                            "Name": " ",
+                            "Start Date": " ",
+                            "End Date": " ",
+                            "Location": " ",
+                            "Description": " ",
+                            "Logo": " ",
+                            "Link": " "
+                        }
+                    ],
+                    "PSG College Of Technology": [
+                        {
+                            "Course": " ",
+                            "Start Date": " ",
+                            "End Date": " ",
+                            "Course Topic": " ",
+                            "Class": " "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Courses and Co-Curricular Experiences (Cerificates, Internships)": [
+                {
+                    "Title": " ",
+                    "Organization": " ",
+                    "Start Date": " ",
+                    "End Date": " ",
+                    "Field": " ",
+                    "Description": " ",
+                    "Logo": " ",
+                    "Link": " "
+                },
+                {
+                    "Title": " ",
+                    "Organization": " ",
+                    "Start Date": " ",
+                    "End Date": " ",
+                    "Field": " ",
+                    "Description": " ",
+                    "Logo": " ",
+                    "Link": " "
+                }
+            ]
+        },
+        {
+            "Scores:": [
+                {
+                    "Grade 10": [
+                        {
+                            "Title": " ",
+                            "Score": " ",
+                            "Logo": " "
+                        }
+                    ],
+                    "Grade 12": [
+                        {
+                            "Title": " ",
+                            "Score": " ",
+                            "Logo": " "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Languages": [
+                {
+                    "Name": " ",
+                    "Proficiency": " "
+                }
+            ]
+        },
+        {
+            "Login Details": [
+                {
+                    "List of IPs": " ",
+                    "List of ": [
+                        {
+                            "City": " ",
+                            "Country": " "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Posts": [
+                {
+                    "Timestamp": " ",
+                    "HTML Content": " ",
+                    "Likes": [
+                        {
+                            "By MemberID": " ",
+                            "Timestamp": " "
+                        }
+                    ],
+                    "Comment": [
+                        {
+                            "By MemberID": " ",
+                            "Timestamp": " ",
+                            "ID": " ",
+                            "Text": " "
+                        }
+                    ]
+                },
+                {
+                    "Timestamp": " ",
+                    "HTML Content": " ",
+                    "Likes": [
+                        {
+                            "By MemberID": " ",
+                            "Timestamp": " "
+                        }
+                    ],
+                    "Comment": [
+                        {
+                            "By MemberID": " ",
+                            "Timestamp": " ",
+                            "ID": " ",
+                            "Text": " "
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
