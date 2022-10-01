@@ -17,7 +17,7 @@ def cgen(subtext,name,date,logo):
     image_editable.text((470,760), date, (0, 0, 0),anchor="ms", font=datefont)
     my_image.paste(cimage,(950,50))
     my_image.save("ticketrengaaaaaaa.png")#certificate name is also subject to change
-    my_image.show()
+    #my_image.show()
 '''subtext="abcdefghijklmnopqrstuvwxyz12345"
 name="Sanjay Kumaar Eswaran"
 date="06-03-2022"
