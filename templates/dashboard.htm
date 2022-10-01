@@ -132,11 +132,8 @@
 						<div class="mdl-card__supporting-text">
 							<div class="mdl-card mdl-shadow--2dp">
 								<div class="mdl-card__title">
-									<h2 class="mdl-card__title-text">{{i["event_name"]}}</h2> </div>
-								<div class="mdl-card__supporting-text"> {{i["event_details"]}} </div>
-								<div class="mdl-card__actions mdl-card--border"> <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-						      View Event
-						    </a> </div>
+									<h2 class="mdl-card__title-text">{{i["Event Name"]}}</h2> </div>
+								<div class="mdl-card__supporting-text"> Start : {{i["Start Date"]}} <br/> {{i["Description"]}} <br/> Open to : Semesters {{i["Semesters Open To"]}} and Departments {{", ".join(i["Departments Open To"])}} <br/> Organized By : {{i["Organizer's Name"]}} <br/> End : {{i["End Date"]}}</div>
 							</div>
 						</div> {% endfor %} </div>
 				</div>
