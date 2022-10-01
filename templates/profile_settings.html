@@ -120,20 +120,10 @@
         <br>
         
         {% if admin=="True" %}
-<<<<<<< HEAD
-        <button onclick="window.location = '{{url_for('add_event')}}'" class="mdl-button mdl-js-button" style="color:white; border-radius: 25px;">
-            Add Event
-        </button>
-        <hr>
-        <button onclick="window.location = '{{url_for('book_room')}}'" class="mdl-button mdl-js-button" style="color:white; border-radius: 25px;">
-            Book A Room
-        </button>
-        <hr>
         <button onclick="window.location = '{{url_for('gen_cert')}}'" class="mdl-button mdl-js-button" style="color:white; border-radius: 25px;">
             Generate A Certificate
         </button>
         <hr>
-=======
             <!-- IF ADMIN THEN WE CAN ADD EVENTS OR BOOK ROOM -->
             <button onclick="window.location = '{{url_for('add_event')}}'" class="mdl-button mdl-js-button" style="color:white; border-radius: 25px;">
                 Add Event
@@ -143,7 +133,6 @@
                 Book A Room
             </button>
             <hr>
->>>>>>> f42ab9185983833f5c0221be517523cf956a24c8
         {% endif %}
         
         <!-- CHANGE PASSWORD OPTION -->

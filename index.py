@@ -8,6 +8,7 @@ import modules.people as people
 import modules.roombooking as roomseditor
 import modules.mailer_hasher as mail
 from modules.certgen import certgen
+from modules.certgen import ticketgen
 
 app = Flask(__name__)
 app.secret_key = "KrrrzPPghtfgSKbtJEQCTA"

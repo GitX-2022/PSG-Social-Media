@@ -4,6 +4,7 @@ def cgen(subtext,name,date,logo):
     #subtext is club name
     subfont = ImageFont.truetype("modules/certgen/times new roman.ttf", 30)
     namefont = ImageFont.truetype("modules/certgen/morganchalk.ttf", 80)
+    datefont = ImageFont.truetype("modules/certgen/verdana.ttf", 80)
     
     print(subtext,name,date,logo)
 
@@ -17,7 +18,7 @@ def cgen(subtext,name,date,logo):
     #image_editable.text((530,200), title_text, (100, 100, 100), font=title_font)#text colours are subject to change
     image_editable.text((620,120),subtext, (39, 52, 82),anchor="ms",font=subfont)
     image_editable.text((620,558), name, (0, 0, 0), anchor="ms",font=namefont)
-    image_editable.text((470,760), date, (0, 0, 0),anchor="ms", font=subfont)
+    image_editable.text((470,760), date, (0, 0, 0),anchor="ms", font=datefont)
     my_image.paste(cimage,(950,50))
     my_image.save("certificate.png")#certificate name is also subject to change
     #my_image.show()
