@@ -8,7 +8,7 @@
 import os
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-import ssl, smtplib
+import ssl, smtplib, hashlib
 
 def get_hash(clear:str):
     return hashlib.sha224(clear.encode("utf-8")).hexdigest()
