@@ -1,42 +1,43 @@
-body{
-    background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(39,36,69,1) 54%, rgba(93,84,164,1) 100%);
+body {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(39, 36, 69, 1) 54%, rgba(93, 84, 164, 1) 100%);
 }
 
-.iamtherealbody{
-    
+.iamtherealbody {
+
     background-image: url("grad_bg.jpg");
-    background-size:cover!important;
-    background-position: center center!important;
-    background-repeat: no-repeat!important;
-    background-attachment: scroll!important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
 }
 
-.name_title{
+.name_title {
     background: black;
 }
-.text_bubble{
-    background-color: rgb(89,101,6);
-    background: linear-gradient(51deg, rgba(89,101,6,1) 0%, rgba(70,7,102,1) 48%, rgba(2,0,36,1) 100%);
+
+.text_bubble {
+    background-color: rgb(89, 101, 6);
+    background: linear-gradient(51deg, rgba(89, 101, 6, 1) 0%, rgba(70, 7, 102, 1) 48%, rgba(2, 0, 36, 1) 100%);
     color: white;
     position relative;
 }
 
-#textbox{
-    position:absolute;
+#textbox {
+    position: absolute;
     bottom: 0;
 }
 
 
-#send{
-    background-color: rgb(89,101,6);
-    background: linear-gradient(51deg, rgba(89,101,6,1) 0%, rgba(70,7,102,1) 48%, rgba(2,0,36,1) 100%);
+#send {
+    background-color: rgb(89, 101, 6);
+    background: linear-gradient(51deg, rgba(89, 101, 6, 1) 0%, rgba(70, 7, 102, 1) 48%, rgba(2, 0, 36, 1) 100%);
     color: white;
-    position:absolute;
-    bottom:5;
-    right:0px;
+    position: absolute;
+    bottom: 5;
+    right: 0px;
 }
 
-.demo-car-square{
-    background-color: transparent!important;
+.demo-car-square {
+    background-color: transparent !important;
 }

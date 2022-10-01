@@ -7,6 +7,7 @@ import modules.events as eventseditor
 import modules.people as people
 import modules.roombooking as roomseditor
 import modules.mailer_hasher as mail
+from modules.certgen import certgen
 
 app = Flask(__name__)
 app.secret_key = "KrrrzPPghtfgSKbtJEQCTA"
@@ -212,6 +213,19 @@ def send_chat(id):
 def delete_chat(id):
     editor.delete(id)
     return redirect(url_for("chat_roll", roll=request.args.get("callback")))
+
+@app.route('/generate-certificate', methods=['POST','GET'])
+def gen_cert():
+    if request.method=='GET':
+        return render_template("admin/gen_cert.htm")
+    if request.method=='POST':
+        rn = request.form.get("clubname")
+        nm = request.form.get("name")
+        dt = datetime.now().strftime("%d/%m/%Y")
+        request.files['logo'].save("logo.png")
+        p = "logo.png"
+        certgen.cgen(rn,nm,dt,p)
+        return send_file("certificate.png")
 
 @app.route('/logout')
 def logout():

@@ -38,6 +38,10 @@
             Book A Room
         </button>
         <hr>
+        <button onclick="window.location = '{{url_for('gen_cert')}}'" class="mdl-button mdl-js-button" style="color:white; border-radius: 25px;">
+            Generate A Certificate
+        </button>
+        <hr>
         {% endif %}
         <button onclick="window.location = '{{url_for('forgot_pass')}}?rollno={{me}}'" class="mdl-button mdl-js-button" style="color:white; border-radius: 25px;">
             Change password
