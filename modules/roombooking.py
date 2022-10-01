@@ -1,5 +1,12 @@
 import json
 
+''' This code is Open Source Code for the GitX GitHub x PSG Tech Hackathon 2022.
+    Team CodeHawk
+    - Aaditya Rengarajan
+    - Ajay Ramesh
+    - S Karun Vikhash
+    - Sanjay Kumaar Easwaran '''
+
 def update(rn,p):
     with open("data/rooms.json","r") as file:
         a=json.load(file)

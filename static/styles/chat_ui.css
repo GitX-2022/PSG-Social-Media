@@ -1,3 +1,10 @@
+/* This code is Open Source Code for the GitX GitHub x PSG Tech Hackathon 2022.
+   Team CodeHawk
+   - Aaditya Rengarajan
+   - Ajay Ramesh
+   - S Karun Vikhash
+   - Sanjay Kumaar Easwaran */
+
 body {
     background: rgb(0, 0, 0);
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(39, 36, 69, 1) 54%, rgba(93, 84, 164, 1) 100%);

@@ -1,3 +1,10 @@
+''' This code is Open Source Code for the GitX GitHub x PSG Tech Hackathon 2022.
+    Team CodeHawk
+    - Aaditya Rengarajan
+    - Ajay Ramesh
+    - S Karun Vikhash
+    - Sanjay Kumaar Easwaran '''
+
 from flask import *
 import json, uuid
 from datetime import datetime
