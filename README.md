@@ -5,4 +5,4 @@ Event Management and User Profiling
 - Aaditya Rengarajan
 - Ajay Ramesh
 - S Karun Vikhash
-- Sanjay Kumaar Easwaran
+- Sanjay Kumaar Eswaran
