@@ -114,15 +114,18 @@
 				<nav class="mdl-navigation"> <a class="mdl-navigation__link" href="{{url_for('dashboard')}}">Dashboard</a> <a class="mdl-navigation__link">Events</a> <a class="mdl-navigation__link" href="{{url_for('my_profile')}}">My Profile</a> <a class="mdl-navigation__link" href="">Roooms</a> <a class="mdl-navigation__link" href="">Settings</a> </nav>
 			</div>
 			<main class="mdl-layout__content" style="padding:15px">
-				<!-- DISPLAYING ALL AVAILABLE EVENTS -->{% for i in events %}
-				<div class="mdl-card__title" style="background-image:url('{{i[" logo "]}}'); height:176px; background-size:320px; background-repeat: no-repeat;">
+				<!-- DISPLAYING ALL AVAILABLE EVENTS -->
+
+				{% for i in events %}
+				<div class="mdl-card mdl-shadow--2dp" style="min-height: 20%!important">
+				<div class="mdl-card__title">
 					<h2 class="mdl-card__title-text">{{i["title"]}}</h2> </div>
 				<div class="mdl-card__supporting-text"> {{i["desc"]}} </div>
 				<div class="mdl-card__menu">
 					<!-- ENROLL BUTTON FOR REGISTRATION -->
 					<button class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect certificate"> Enroll </button>
 				</div>
-			    </div>
+				</div>
 			<br> 
 		    {% endfor %} 
 		</main>
