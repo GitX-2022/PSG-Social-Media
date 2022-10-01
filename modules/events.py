@@ -56,4 +56,3 @@ def update(eve_code):
 
     with open("Hackathon/JSON/events.json", "w") as dest:
         json.dump(obj, dest, indent=4)
-delete(input())

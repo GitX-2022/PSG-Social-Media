@@ -75,6 +75,3 @@ def delete(Roll_No):
         print(i)
     with open("Hackathon/JSON/people.json", "w") as dest:
         json.dump(obj, dest, indent=4)
-
-#send()
-delete(input())

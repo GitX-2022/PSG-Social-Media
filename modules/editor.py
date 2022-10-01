@@ -59,9 +59,3 @@ def delete(text_id, sender_id, receiver_id):
         print(i)
     with open("chats.json", "w") as dest:
         json.dump(obj, dest, indent=4)
-
-
-#send()
-#update(input(), input(), input())
-#read()
-#delete(input(), input(), input())

@@ -1,5 +1,9 @@
 from flask import *
 import json
+from modules.editor import *
+from modules.events import *
+from modules.people import *
+from modules.roombooking import *
 
 app = Flask(__name__)
 app.secret_key = "KrrrzPPghtfgSKbtJEQCTA"
