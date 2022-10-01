@@ -14,6 +14,7 @@ Eventique is a club events management tool for the college and provides a handfu
 - Enroll for an Event
 - View Booked Rooms at the College
 - Locker for Issued Certificates
+- Readymade certificate template for auto-generation
 
 ### Common Features
 - Use Server-Based Instant Messaging to interact with one another
@@ -24,6 +25,8 @@ Eventique is a club events management tool for the college and provides a handfu
 
 ## Tech Stack Used
 - Python3-Flask
+- Python3-json
+- Python3-Pillow
 - Vanilla HTML
 - Material Design Lite for Cascading Style Sheets
 - Vanilla Java Script
