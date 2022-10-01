@@ -18,6 +18,19 @@
             "Attendees": [
                 "21Z247"
             ]
+        },
+        {
+            "Event Code": "2",
+            "Event Name": "What's Hackening?",
+            "Start Date": "2022-10-14T03:47",
+            "End Date": "2022-10-29T03:47",
+            "Semesters Open To": "1,2,3,4,5,6",
+            "Departments Open To ": "CSE, AMCS",
+            "Organizer's Name": "CSEA",
+            "Description": "Hackathon and Workshop",
+            "Attendees": [
+                "21Z247"
+            ]
         }
     ]
 }

@@ -28,7 +28,7 @@
 				    </div>
 				    <div class="mdl-layout-spacer"></div>
 				    <div class="mdl-card__menu" style="margin-top: -6px;">
-					  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" style="transform: rotate(-30deg);">
+					  <button onclick="window.location = '{{url_for('chats')}}'" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" style="transform: rotate(-30deg);">
 					      <i class="material-icons">send</i>
 					  </button>
 					</div>
@@ -43,41 +43,33 @@
 
 					    <div class="mdl-card mdl-shadow--2dp">
 						  <div class="mdl-card__supporting-text">
-							<form>
+							<form action="{{url_for('add_event')}}" method='POST'>
 								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								    <input class="mdl-textfield__input" type="text" id="name">
+								    <input class="mdl-textfield__input" name="eve_name" type="text" id="name">
 								    <label class="mdl-textfield__label" for="name">Event Name<label>
 								</div>
 								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-									Upload Poster<br/><br/>
-								    <input type="file" id="uploadBtn" accept=".xlsx" name="file">
-								</div>
-								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								    <input class="mdl-textfield__input" type="datetime-local" id="datetime">
+								    <input class="mdl-textfield__input" name="start_date" type="datetime-local" id="datetime">
 								    <label class="mdl-textfield__label" for="datetime">Start Date and Time<label>
 								</div>
 								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								    <input class="mdl-textfield__input" type="datetime-local" id="datetime">
+								    <input class="mdl-textfield__input" name="end_date" type="datetime-local" id="datetime">
 								    <label class="mdl-textfield__label" for="datetime">End Date and Time<label>
 								</div>
 								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								    <input class="mdl-textfield__input" type="text" id="name">
-								    <label class="mdl-textfield__label" for="name">Years Open To (Separated by Comma)<label>
-								</div>
-								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								    <input class="mdl-textfield__input" type="text" id="name">
-								    <label class="mdl-textfield__label" for="name">Departments Open To (Separated by Comma)<label>
-								</div>
-								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								    <input class="mdl-textfield__input" type="text" id="name">
+								    <input class="mdl-textfield__input" name="sem_open" type="text" id="name">
 								    <label class="mdl-textfield__label" for="name">Semesters Open To (Separated by Comma)<label>
 								</div>
 								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								    <input class="mdl-textfield__input" type="text" id="name">
+								    <input class="mdl-textfield__input" name="dep_open" type="text" id="name">
+								    <label class="mdl-textfield__label" for="name">Departments Open To (Separated by Comma)<label>
+								</div>
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								    <input class="mdl-textfield__input" name="or_name" type="text" id="name">
 								    <label class="mdl-textfield__label" for="name">Event Organizer's Name<label>
 								</div>
 								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								    <input class="mdl-textfield__input" type="text" id="name">
+								    <input class="mdl-textfield__input" name="desc" type="text" id="name">
 								    <label class="mdl-textfield__label" for="name">Event Description<label>
 								</div>
 								<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">

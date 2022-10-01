@@ -136,24 +136,6 @@ def update_booking(code,dt):
     return render_template("admin/view_room.htm",
                             rooms = rooms.get("rooms"))
 
-@app.route('/chats')
-def chats():
-    with open(f"data/chats.json") as f:
-        chats = json.load(f)
-    user_chats = []
-    for i in chats.get("chat_logs"):
-        if (json.loads(session.get("login")).get("roll").upper()==i.get("sender_ID").upper()):
-            if i.get("receiver_ID").upper() not in user_chats:
-                if i.get("receiver_ID")!=json.loads(session.get("login")).get("roll").upper():
-                    print(user_chats)
-                    user_chats.append(i.get("receiver_ID").upper())
-        if (json.loads(session.get("login")).get("roll").upper()==i.get("receiver_ID").upper()):
-            if i.get("sender_ID").upper() not in user_chats:
-                if i.get("sender_ID")!=json.loads(session.get("login")).get("roll").upper():
-                    print(user_chats)
-                    user_chats.append(i.get("sender_ID").upper())
-    return render_template("chat_main.html", user_chats = user_chats)
-
 @app.route('/profile-settings')
 def settings():
     return render_template("profile_settings.html",
@@ -172,12 +154,37 @@ def book_room():
         roomseditor.addbooking(rn,dt,p,by)
         return redirect(url_for('rooms'))
 
-@app.route('/add-event')
+@app.route('/add-event', methods=['POST', 'GET'])
 def add_event():
     if request.method=='GET':
         return render_template("admin/update_event.htm")
     if request.method=='POST':
-        pass
+        eventseditor.add(request.form.get("eve_name"),
+                         request.form.get("start_date"),
+                         request.form.get("end_date"),
+                         request.form.get("sem_open"),
+                         request.form.get("dep_open"),
+                         request.form.get("or_name"),
+                         request.form.get("desc"))
+        return redirect(url_for("events"))
+
+@app.route('/chats')
+def chats():
+    with open(f"data/chats.json") as f:
+        chats = json.load(f)
+    user_chats = []
+    for i in chats.get("chat_logs"):
+        if (json.loads(session.get("login")).get("roll").upper()==i.get("sender_ID").upper()):
+            if i.get("receiver_ID").upper() not in user_chats:
+                if i.get("receiver_ID")!=json.loads(session.get("login")).get("roll").upper():
+                    print(user_chats)
+                    user_chats.append(i.get("receiver_ID").upper())
+        if (json.loads(session.get("login")).get("roll").upper()==i.get("receiver_ID").upper()):
+            if i.get("sender_ID").upper() not in user_chats:
+                if i.get("sender_ID")!=json.loads(session.get("login")).get("roll").upper():
+                    print(user_chats)
+                    user_chats.append(i.get("sender_ID").upper())
+    return render_template("chat_main.html", user_chats = user_chats)
 
 @app.route('/chats/<roll>')
 def chat_roll(roll):
@@ -187,7 +194,8 @@ def chat_roll(roll):
     for i in chats.get("chat_logs"):
         if (i.get("receiver_ID")==roll) or (i.get("sender_ID")==roll):
             my_chats.append(i)
-    return render_template("chat_ui.html", my_chats = my_chats, person=roll)
+    return render_template("chat_ui.html", my_chats = my_chats, person=roll,
+                            me = json.loads(session.get("login"))["roll"])
 
 @app.route('/chats/unsend/<id>')
 def delete_chat(id):
