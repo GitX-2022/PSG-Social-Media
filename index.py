@@ -112,7 +112,7 @@ def chat_roll(roll):
     for i in chats.get("chat_logs"):
         if (i.get("receiver_ID")==roll) or (i.get("sender_ID")==roll):
             my_chats.append(i)
-    return render_template("chat_ui.html", my_chats = my_chats)
+    return render_template("chat_ui.html", my_chats = my_chats, person=roll)
 
 @app.route('/chats/unsend/<id>')
 def delete_chat(id):

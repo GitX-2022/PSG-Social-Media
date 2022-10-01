@@ -9,9 +9,10 @@
         <!-- Always shows a header, even in smaller screens. -->
         <div class="mdl-layout__header-row name_title">
             <!-- Title -->
-            <span class="mdl-layout-title" style="color: white;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center;">Sanjay</span>
-            <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>
+            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" style="color:white;text-align: left;position: left;margin-left: -50;" onclick="history.back()">
+                      <i class="material-icons">arrow_back</i>
+                  </button>
+            <span class="mdl-layout-title" style="margin-bottom: 5;padding-left: 10;color: white;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center;">{{person}}</span>
         </div>
         <br>
         <div style="padding:20px;">
@@ -27,7 +28,7 @@
                 <i class="material-icons" style="color: purple;">more_vert</i>
                 </button>
 
-                <a href="{{url('delete_chat', id=i['id'])}}" target="_blank"><ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+                <a href="{{url_for('delete_chat', id=i['id'])}}" target="_blank"><ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
                 for="demo-menu-lower-left-{{loop.index}}">
                 <li class="mdl-menu__item">Unsend</li>
                 </ul>
