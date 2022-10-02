@@ -58,12 +58,22 @@ curl {APP_HOST}/api/ticket/{EVENT_ID} # this will return a PNG of the event tick
 - NGINX Server
 - PIL//Pillow (Python Imaging Library)
 
+## Security Features
+
+Passwords are stored as SHA224 Hashes and all inputs are sanitized in order to strengthen security. This web application has been tested against the OWASP TOP 10 Vulnerabilities 2021. Since Python has been used as the basis for this project, it is ensured to be secured.
+- A03 Injection : Flask automatically sanitizes input into HTML Encoding, hence preventing SQL Injection. Moreover, this project uses JSON Files as offline database for storage.
+- A01 Broken Access Control : Credentials are stored as SHA224 Hashes, Password Recoveries require Email for OTPs and Session variables are stored as JSON Dumps, and are safe from MITM Attacks as the app has a Secret Key. Moreover, we use Flask-SSLify to ensure we run on HTTPS even on testing environments - using self-signed SSL certificates.
+
+SSLify, however, can be eliminated if hosted in a server with proper security configurations.
+
 ## Documentation
 - <a href="https://getmdl.io/started/index.html">Material Design Lite</a>
 - <a href="https://flask.palletsprojects.com/en/2.2.x/">Python3-Flask</a>
 - <a href="https://gunicorn.org/#docs">GUnicorn</a>
 - <a href="https://nginx.org/en/docs/">NGINX</a>
 - <a href="https://pillow.readthedocs.io/en/stable/">Pillow</a>
+- <a href="https://flask.palletsprojects.com/en/2.2.x/security/">Security Considerations</a>
+- <a href="https://github.com/kennethreitz/flask-sslify">SSLify</a>
 
 ## Authors
 - <a href="https://github.com/aadityarengarajan">@aadityarengarajan | Aaditya Rengarajan</a>
