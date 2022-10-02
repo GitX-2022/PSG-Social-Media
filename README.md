@@ -4,7 +4,7 @@ Eventique is a club events management tool for the college and provides a handfu
 Eventique helps in reducing the hassle of conducting an event by semi-automation of some of the procedures like ticket and certificate generation. 
 The application also provides room availabilty service for professors so that they can plan their classes beforehand.
 
-This is a complete, full-fledged web-application with decent industry-level releasable User Interface and feature-functioning.
+This is a complete, full-fledged web-application with decent industry-level releasable User Interface and feature-functioning. Hosted on <a href="http://eventique.intellx.in/">eventique.intellx.com</a>
 
 ### Admin Tools
 - Add Events
