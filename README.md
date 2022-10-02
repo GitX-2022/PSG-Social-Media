@@ -1,8 +1,8 @@
 # Eventique
 
-Eventique is a club events management tool for the college and provides a handful of features. This tool helps in notifying the students about the upcoming events and will serve as a storage media for all their certificate.
-This tool help in reducing the hassle of conducting an event by semi-automation of some of the procedures like ticket and certificate generation. 
-The tool also provides room availabilty service for professors so that they can plan their classes beforehand.
+Eventique is a club events management tool for the college and provides a handful of features. This application helps in notifying the students about the upcoming events and will serve as a storage media for all their certificate.
+Eventique helps in reducing the hassle of conducting an event by semi-automation of some of the procedures like ticket and certificate generation. 
+The application also provides room availabilty service for professors so that they can plan their classes beforehand.
 
 ### Admin Tools
 - Add Events
